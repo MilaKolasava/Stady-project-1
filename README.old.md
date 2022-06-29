@@ -1,1 +1,0 @@
-# Stady-project-1
