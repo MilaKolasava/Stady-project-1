@@ -11,21 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.wrapper {
-  padding-top: 1rem;
-  margin: 0 auto;
-  width: 100%; 
-  border: solid 3px red;
-  background-color: black;
-}
-.list-navigation {
-  display: flex;
-  column-gap: 20px;
-  list-style-type: none;
-  color: white;
-}
-.navigation {
-  display: flex;
-  justify-content: space-between;
-    align-items: center;
-}

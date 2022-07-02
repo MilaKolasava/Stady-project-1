@@ -1,0 +1,28 @@
+.wrapper {
+    padding-top: 0.3rem;
+    margin: 0 auto;
+    width: 100%; 
+    /*border: solid 3px red;*/
+    background-color: black;
+    width: 100vw;
+   
+   max-width: 100%;
+  }
+  .list-navigation {
+    display: flex;
+    column-gap: 20px;
+    list-style-type: none;
+    color: white;
+  }
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+  }
+  .loupe * {
+    fill: white
+  }
+  .loupe {
+    padding-right: 40px;
+  }

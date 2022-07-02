@@ -1,5 +1,6 @@
 import React from 'react';
-
+import './Header.css';
+import {ReactComponent as Loupe} from './loupe.svg';
 
 function Header() {
   return (
@@ -12,11 +13,8 @@ function Header() {
           <li>CONTACT</li>
           <li>MORE</li>
         </ul>
-              <form className='search-navigation'>
-          <input type="text" name='text' className='search' placeholder='Search here!' />
-          <input type="submit" name='submit' className='submit' value='Search' />
-        </form>
-        </nav>
+                            <Loupe className='loupe' width='10' height='10' />
+            </nav>
     </div>
   );
 }
