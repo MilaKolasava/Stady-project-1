@@ -1,6 +1,6 @@
 import React from "react";
-import Header from "./Header";
-import Jumbotron from "./Jumbotron";
+import Header from "./components/Header/Header";
+import Jumbotron from "./components/Jumbotron/Jumbotron";
 
 function App() {
   return (

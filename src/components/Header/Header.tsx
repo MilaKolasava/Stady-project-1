@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import { ReactComponent as Loupe } from "./loupe.svg";
+import { ReactComponent as Loupe } from "../../assets/loupe.svg";
 
 function Header() {
   return (
