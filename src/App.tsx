@@ -1,14 +1,12 @@
-import React from 'react';
-import Header from './Header';
-import Jumbatron from './Jumbatron';
-
+import React from "react";
+import Header from "./Header";
+import Jumbotron from "./Jumbotron";
 
 function App() {
   return (
     <>
-        <Header />
-        <Jumbatron />
-        
+      <Header />
+      <Jumbotron />
     </>
   );
 }
