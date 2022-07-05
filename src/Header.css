@@ -5,6 +5,10 @@
   background-color: black;
   width: 100vw;
   max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
 }
 
 .list-navigation {
@@ -12,13 +16,6 @@
   column-gap: 20px;
   list-style-type: none;
   color: white;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 10px;
 }
 
 .loupe * {
