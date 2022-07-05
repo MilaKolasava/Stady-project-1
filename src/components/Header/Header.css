@@ -1,0 +1,29 @@
+.wrapper {
+  background-color: black;
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-navigation {
+  display: flex;
+  column-gap: 20px;
+  list-style-type: none;
+  color: white;
+  font-size: 10px;
+}
+
+.loupe * {
+  fill: white;
+}
+
+.loupe {
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.list-navigation li {
+  cursor: pointer;
+}
