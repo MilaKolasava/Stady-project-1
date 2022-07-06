@@ -9,7 +9,7 @@ export default function MenuItems(props: MenuItemsProps) {
   return (
     <ul className="list-navigation">
       {props.items.map((item) => (
-        <MenuItem item={item} />
+        <MenuItem item={item.toUpperCase()} />
       ))}
     </ul>
   );
