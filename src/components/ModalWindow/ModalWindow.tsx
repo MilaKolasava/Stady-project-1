@@ -4,7 +4,7 @@ import "./ModalWindow.css";
 function ModalWindow() {
   return (
     <div className="modalWindow">
-      <div className="modalContent"></div>
+      <div className="modalContent" />
     </div>
   );
 }
