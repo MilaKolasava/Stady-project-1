@@ -5,6 +5,7 @@ import ModalWindow from "./components/ModalWindow/ModalWindow";
 
 function App() {
   const [modalActive, setModalActive] = useState(() => false);
+
   return (
     <>
       <Header setModalActive={setModalActive} />
