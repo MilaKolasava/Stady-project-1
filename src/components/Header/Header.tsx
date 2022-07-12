@@ -4,14 +4,14 @@ import { ReactComponent as Loupe } from "../../assets/loupe.svg";
 import MenuItems from "../MenuItems/MenuItems";
 import { MENU_ITEMS } from "./Header.constant";
 
-function Header() {
+function Header(props: { setModalActive: (arg0: boolean) => void }) {
   return (
     <nav className="wrapper">
       <MenuItems items={MENU_ITEMS} />
       <Loupe
         className="loupe"
         onClick={() => {
-          setModalActive(true);
+          props.setModalActive(true);
         }}
         width="10"
         height="10"

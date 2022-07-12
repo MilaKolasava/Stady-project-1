@@ -7,9 +7,9 @@ function App() {
   const [modalActive, setModalActive] = useState(() => false);
   return (
     <>
-      <Header />
+      <Header setModalActive={setModalActive} />
       <Jumbotron />
-      <ModalWindow modalActive setModalActive />
+      {modalActive && <ModalWindow />}
     </>
   );
 }

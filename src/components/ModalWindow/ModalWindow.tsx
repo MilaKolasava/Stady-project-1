@@ -3,7 +3,7 @@ import "./ModalWindow.css";
 
 function ModalWindow() {
   return (
-    <div className="modalWindow" onClick={() => setModalActive(false)}>
+    <div className="modalWindow">
       <div className="modalContent" />
     </div>
   );
