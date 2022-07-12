@@ -8,7 +8,14 @@ function Header() {
   return (
     <nav className="wrapper">
       <MenuItems items={MENU_ITEMS} />
-      <Loupe className="loupe" width="10" height="10" />
+      <Loupe
+        className="loupe"
+        onClick={() => {
+          setModalActive(true);
+        }}
+        width="10"
+        height="10"
+      />
     </nav>
   );
 }
