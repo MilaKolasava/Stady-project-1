@@ -4,7 +4,7 @@ import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
 
 function App() {
-  const [modalActive, setModalActive] = useState(() => false);
+  const [modalActive, setModalActive] = useState<boolean>(() => false);
 
   return (
     <>
