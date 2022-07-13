@@ -10,7 +10,7 @@ function App() {
     <>
       <Header setModalActive={setModalActive} />
       <Jumbotron />
-      {modalActive && <ModalWindow />}
+      {modalActive && <ModalWindow setModalActive={setModalActive} />}
     </>
   );
 }
