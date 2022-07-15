@@ -17,7 +17,6 @@ test("should render wrapper", () => {
 test("should render loupe", () => {
   const setModalActive = jest.fn;
   render(<Header setModalActive={setModalActive} />);
-
   const headerElement = screen.getByTestId("header-loupe");
   expect(headerElement).toBeInTheDocument();
 });
