@@ -10,10 +10,11 @@ interface HeadersProps {
 
 function Header(props: HeadersProps) {
   return (
-    <nav className="wrapper">
+    <nav className="wrapper" data-testid="header-wrapper">
       <MenuItems items={MENU_ITEMS} />
       <Loupe
         className="loupe"
+        data-testid="header-loupe"
         onClick={() => {
           props.setModalActive(true);
         }}

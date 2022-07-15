@@ -5,5 +5,5 @@ interface MenuItemProps {
 }
 
 export default function MenuItem(props: MenuItemProps) {
-  return <li>{props.item}</li>;
+  return <li data-testid="menu-item">{props.item}</li>;
 }

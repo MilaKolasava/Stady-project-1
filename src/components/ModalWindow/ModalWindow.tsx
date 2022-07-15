@@ -7,9 +7,10 @@ interface ModalWindowProps {
 
 function ModalWindow(props: ModalWindowProps) {
   return (
-    <div className="modalWindow">
+    <div className="modalWindow" data-testid="modal-window">
       <div
         className="modalContent"
+        data-testid="modal-content"
         onClick={() => {
           props.setModalActive(false);
         }}

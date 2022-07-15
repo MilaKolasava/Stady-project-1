@@ -7,7 +7,7 @@ interface MenuItemsProps {
 
 export default function MenuItems(props: MenuItemsProps) {
   return (
-    <ul className="list-navigation">
+    <ul className="list-navigation" data-testid="menu-items">
       {props.items.map((item) => (
         <MenuItem item={item.toUpperCase()} />
       ))}
