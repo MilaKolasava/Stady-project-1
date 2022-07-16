@@ -1,7 +1,13 @@
 import React, { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import About from "./components/About/About";
 import Header from "./components/Header/Header";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
+
+interface HeadersProps {
+  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 function App() {
   const [modalActive, setModalActive] = useState<boolean>(() => false);
@@ -9,8 +15,10 @@ function App() {
   return (
     <>
       <Header setModalActive={setModalActive} />
-      <Jumbotron />
-      {modalActive && <ModalWindow setModalActive={setModalActive} />}
+      <Routes>
+        <Route path="about" element={<About />} />
+        <Route path="/" element={<Jumbotron />} />
+      </Routes>
     </>
   );
 }

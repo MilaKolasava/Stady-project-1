@@ -1,0 +1,9 @@
+.main-picture {
+  background: url(../../assets/about-picture.jpg) center, no-repeat;
+  margin: 0 auto;
+  width: 100vw;
+  height: calc(100vh - 31px);
+  max-width: 100%;
+  max-height: 100%;
+  background-size: cover;
+}
