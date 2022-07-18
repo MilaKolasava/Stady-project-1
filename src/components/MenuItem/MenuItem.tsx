@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./MenuItem.css";
 
 interface MenuItemProps {
-  item: string;
+  title: string;
+  path: string;
 }
 
 export default function MenuItem(props: MenuItemProps) {
   return (
-    <Link to="/about">
-      <li data-testid="menu-item">{props.item}</li>
+    <Link className="navigation-link" to={props.path}>
+      <li data-testid="menu-item">{props.title}</li>
     </Link>
   );
 }

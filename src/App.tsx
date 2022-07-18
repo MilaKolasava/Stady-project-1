@@ -15,6 +15,7 @@ function App() {
   return (
     <>
       <Header setModalActive={setModalActive} />
+      {modalActive && <ModalWindow setModalActive={setModalActive} />}
       <Routes>
         <Route path="about" element={<About />} />
         <Route path="/" element={<Jumbotron />} />
