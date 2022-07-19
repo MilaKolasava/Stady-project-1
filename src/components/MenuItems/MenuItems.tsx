@@ -6,7 +6,7 @@ interface MenuItemsProps {
   items: Array<ElementMenuInterface>;
 }
 
-export default function MenuItems(props: MenuItemsProps) {
+function MenuItems(props: MenuItemsProps) {
   return (
     <ul className="list-navigation" data-testid="menu-items">
       {props.items.map((item) => (
@@ -15,3 +15,4 @@ export default function MenuItems(props: MenuItemsProps) {
     </ul>
   );
 }
+export default MenuItems;

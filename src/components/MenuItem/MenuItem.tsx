@@ -7,10 +7,12 @@ interface MenuItemProps {
   path: string;
 }
 
-export default function MenuItem(props: MenuItemProps) {
+function MenuItem(props: MenuItemProps) {
   return (
     <Link className="navigation-link" to={props.path}>
       <li data-testid="menu-item">{props.title}</li>
     </Link>
   );
 }
+
+export default MenuItem;
