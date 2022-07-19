@@ -1,0 +1,9 @@
+.navigation-link {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+a:active {
+  color: beige;
+  border-bottom: 1px solid;
+}
