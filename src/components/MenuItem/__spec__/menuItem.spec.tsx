@@ -8,10 +8,11 @@ afterEach(() => {
 });
 
 test("should render menuItem", () => {
-  <BrowserRouter>
-    render(
-    <MenuItem title={""} path={""} />
-    ); const menuItemElement = screen.getByTestId("menu-item");
-    expect(menuItemElement).toBeInTheDocument();
-  </BrowserRouter>;
+  render(
+    <BrowserRouter>
+      <MenuItem title={""} path={""} />
+    </BrowserRouter>
+  );
+  const menuItemElement = screen.getByTestId("menu-item");
+  expect(menuItemElement).toBeInTheDocument();
 });

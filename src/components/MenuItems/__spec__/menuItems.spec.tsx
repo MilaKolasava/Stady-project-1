@@ -9,10 +9,11 @@ afterEach(() => {
 });
 
 test("should render menuItems component", () => {
-  <BrowserRouter>
-    render(
-    <MenuItems items={MENU_ITEMS} />
-    ); const menuItemsElement = screen.getAllByTestId("menu-item");
-    expect(menuItemsElement).toHaveLength(2);
-  </BrowserRouter>;
+  render(
+    <BrowserRouter>
+      <MenuItems items={MENU_ITEMS} />
+    </BrowserRouter>
+  );
+  const menuItemsElement = screen.getAllByTestId("menu-item");
+  expect(menuItemsElement).toHaveLength(2);
 });

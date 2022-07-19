@@ -9,20 +9,24 @@ afterEach(() => {
 
 test("should render wrapper", () => {
   const setModalActive = jest.fn;
-  <BrowserRouter>
-    render(
-    <Header setModalActive={setModalActive} />
-    ); const headerElement = screen.getByTestId("header-wrapper");
-    expect(headerElement).toBeInTheDocument();
-  </BrowserRouter>;
+
+  render(
+    <BrowserRouter>
+      <Header setModalActive={setModalActive} />
+    </BrowserRouter>
+  );
+  const headerElement = screen.getByTestId("header-wrapper");
+  expect(headerElement).toBeInTheDocument();
 });
 
 test("should render loupe", () => {
   const setModalActive = jest.fn;
-  <BrowserRouter>
-    render(
-    <Header setModalActive={setModalActive} />
-    ); const headerElement = screen.getByTestId("header-loupe");
-    expect(headerElement).toBeInTheDocument();
-  </BrowserRouter>;
+
+  render(
+    <BrowserRouter>
+      <Header setModalActive={setModalActive} />
+    </BrowserRouter>
+  );
+  const headerElement = screen.getByTestId("header-loupe");
+  expect(headerElement).toBeInTheDocument();
 });
