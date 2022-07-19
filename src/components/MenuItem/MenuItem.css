@@ -3,7 +3,7 @@
   color: aliceblue;
 }
 
-a:active {
+.navigation-link:active {
   color: beige;
   border-bottom: 1px solid;
 }
