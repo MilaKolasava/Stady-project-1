@@ -1,26 +1,61 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine.
-# See: https://circleci.com/docs/2.0/configuration-reference
-version: 2.1
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
-jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+executors:
+  cypress:
     docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+      - image: cypress/base:12
+        environment:
+          TERM: xterm
+    working_directory: ~/react-fundamentals
+
+commands:
+  restore_yarn_install:
+    steps:
+      - restore_cache:
+          name: Restore Cache [yarn install]
+          key: yarn-modules-{{ checksum "yarn.lock" }}
+  restore_cypress_install:
+    steps:
+      - restore_cache:
+          name: Restore Cache [cypress]
+          key: cypress-{{ checksum "yarn.lock" }}
+  yarn_install:
+    steps:
+      - run:
+          name: Install dep
+          command: yarn install
+orbs:
+  node: circleci/node@3.0.0
+
+version: 2.1
+jobs:
+  checkout_code:
+    executor: cypress
     steps:
       - checkout
+      - restore_yarn_install
+      - restore_cypress_install
+      - yarn_install
+      - save_cache:
+          key: yarn-modules-{{ checksum "yarn.lock"}}
+          paths:
+            - ./node_modules
+      - save_cache:
+          key: cypress-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache
+  test:
+    executor: cypress
+    steps:
+      - checkout
+      - restore_yarn_install
+      - run: npm install
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
-
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+          name: Run coverage tests
+          command: npm run test
 workflows:
-  say-hello-workflow:
+  version: 2
+  main:
     jobs:
-      - say-hello
+      - checkout_code
+      - test:
+          requires:
+            - checkout_code
