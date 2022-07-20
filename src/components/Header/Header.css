@@ -5,14 +5,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
+  font-size: 10px;
 }
 
 .list-navigation {
   display: flex;
   column-gap: 20px;
   list-style-type: none;
-  color: white;
-  font-size: 10px;
 }
 
 .loupe * {
@@ -20,10 +20,16 @@
 }
 
 .loupe {
-  padding-right: 40px;
   cursor: pointer;
 }
 
 .list-navigation li {
   cursor: pointer;
+}
+
+.right-icon {
+  display: flex;
+  column-gap: 20px;
+  padding-right: 40px;
+  align-items: center;
 }
