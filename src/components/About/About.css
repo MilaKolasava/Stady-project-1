@@ -1,3 +1,4 @@
 .about {
   background: url(../../assets/about-picture.jpg) center, no-repeat;
+  background-size: cover;
 }
