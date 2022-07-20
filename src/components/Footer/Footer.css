@@ -1,0 +1,14 @@
+.svg-picture * {
+  fill: white;
+}
+
+.svg-picture {
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+#footer {
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+}

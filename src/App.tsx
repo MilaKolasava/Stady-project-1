@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
@@ -16,6 +17,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="/" element={<Jumbotron />} />
       </Routes>
+      <Footer />
     </>
   );
 }
