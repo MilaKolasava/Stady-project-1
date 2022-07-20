@@ -6,10 +6,13 @@ import { ReactComponent as GitHub } from "../../assets/github-icon.svg";
 function Footer() {
   return (
     <nav className="wrapper" id="footer" data-testid="footer-wrapper">
-      <a href="http://www.linkedin.com/in/luydmila-kolasava-1940a01b0">
+      <a
+        href="http://www.linkedin.com/in/luydmila-kolasava-1940a01b0"
+        target="_blank"
+      >
         <LinkedIn className="svg-picture" />
       </a>
-      <a href="https://github.com/MilaKolasava">
+      <a href="https://github.com/MilaKolasava" target="_blank">
         <GitHub className="svg-picture" />
       </a>
       <p>@Copyright 2022 Kolasava M.</p>
