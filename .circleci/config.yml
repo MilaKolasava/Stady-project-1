@@ -1,0 +1,61 @@
+executors:
+  cypress:
+    docker:
+      - image: cypress/base:12
+        environment:
+          TERM: xterm
+    working_directory: ~/react-fundamentals
+
+commands:
+  restore_yarn_install:
+    steps:
+      - restore_cache:
+          name: Restore Cache [yarn install]
+          key: yarn-modules-{{ checksum "yarn.lock" }}
+  restore_cypress_install:
+    steps:
+      - restore_cache:
+          name: Restore Cache [cypress]
+          key: cypress-{{ checksum "yarn.lock" }}
+  yarn_install:
+    steps:
+      - run:
+          name: Install dep
+          command: yarn install
+orbs:
+  node: circleci/node@3.0.0
+
+version: 2.1
+jobs:
+  checkout_code:
+    executor: cypress
+    steps:
+      - checkout
+      - restore_yarn_install
+      - restore_cypress_install
+      - yarn_install
+      - save_cache:
+          key: yarn-modules-{{ checksum "yarn.lock"}}
+          paths:
+            - ./node_modules
+      - save_cache:
+          key: cypress-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache
+  test:
+    executor: cypress
+    steps:
+      - checkout
+      - restore_yarn_install
+      - run: npm install
+      - run:
+          name: Run coverage tests
+          command: npm run test
+workflows:
+  version: 2
+  main:
+    jobs:
+      - checkout_code
+      - test:
+          requires:
+            - checkout_code
