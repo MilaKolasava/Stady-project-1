@@ -1,28 +1,48 @@
 import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import Toggle from "../Toggle";
+import "@testing-library/jest-dom";
+import "jest-dom/extend-expect";
 
 afterEach(() => {
   cleanup();
 });
 
-test("should render wrapper toggle component", () => {
-  render(<Toggle />);
+describe("Toggle", () => {
+  describe("render tests", () => {
+    it("should render wrapper toggle component", () => {
+      const { getByTestId } = render(<Toggle />);
 
-  const toggleElement = screen.getByTestId("toggle-wrapper");
-  expect(toggleElement).toBeInTheDocument();
-});
+      expect(getByTestId("toggle-wrapper")).toBeVisible();
+    });
+  });
 
-test("should render dot toggle component", () => {
-  render(<Toggle />);
+  describe("render tests", () => {
+    it("should render dot toggle component", () => {
+      const { getByTestId } = render(<Toggle />);
 
-  const toggleElement = screen.getByTestId("toggle-dot");
-  expect(toggleElement).toBeInTheDocument();
-});
+      expect(getByTestId("toggle-dot")).toBeVisible();
+    });
+  });
 
-test("should render switch toggle component", () => {
-  render(<Toggle />);
+  describe("render tests", () => {
+    it("should render switch toggle component", () => {
+      const { getByTestId } = render(<Toggle />);
 
-  const toggleElement = screen.getByTestId("toggle-switch");
-  expect(toggleElement).toBeInTheDocument();
+      expect(getByTestId("toggle-switch")).toBeVisible();
+    });
+  });
+
+  describe("click handling test", () => {
+    it("should execute onClick function when clicked", () => {
+      const { getByTestId } = render(<Toggle />);
+      expect(getByTestId("toggle-wrapper")).toHaveStyle(
+        {background-color: 'black'}
+      );
+      fireEvent.click(screen.getByText(/DARK/i));
+      expect(getByTestId("toggle-wrapper")).toHaveStyle(
+        {background-color: 'white'}
+      );
+    });
+  });
 });
