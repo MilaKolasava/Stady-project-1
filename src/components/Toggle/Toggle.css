@@ -1,0 +1,51 @@
+.toggle-wrapper {
+  position: relative;
+  border-radius: 13px;
+  width: 50px;
+  height: 20px;
+}
+
+.toggle-wrapper-dark {
+  border: 2px solid white;
+  background-color: black;
+}
+
+.toggle-wrapper-light {
+  border: 2px solid black;
+  background-color: white;
+}
+
+.toggle-dot {
+  position: absolute;
+  top: 3px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.dot-left-position {
+  left: 2px;
+  background-color: black;
+  border: 1px solid black;
+}
+
+.dot-right-position {
+  right: 2px;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.toggle-switch {
+  position: absolute;
+  top: 3px;
+}
+
+.toggle-switch-right {
+  right: 3px;
+  color: black;
+}
+
+.toggle-switch-left {
+  left: 3px;
+  color: white;
+}
