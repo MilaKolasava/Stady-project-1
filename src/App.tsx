@@ -8,7 +8,6 @@ import ModalWindow from "./components/ModalWindow/ModalWindow";
 
 function App() {
   const [modalActive, setModalActive] = useState<boolean>(() => false);
-  const [toggleActive, setToggleActive] = useState<boolean>(() => false);
 
   return (
     <>

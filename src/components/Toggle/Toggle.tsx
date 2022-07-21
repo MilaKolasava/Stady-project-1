@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Toggle.css";
 
 function Toggle() {
-  const [isDarkThemeOff, setIsDarkThemeOff] = useState(true);
+  const [isDarkThemeOff, setIsDarkThemeOff] = useState<boolean>(() => true);
 
   return (
     <div
@@ -20,7 +20,6 @@ function Toggle() {
         }-position`}
         data-testid="toggle-dot"
       />
-
       <div
         className={`toggle-switch toggle-switch-${
           isDarkThemeOff ? "left" : "right"

@@ -13,7 +13,7 @@ function Header(props: HeadersProps) {
   return (
     <nav className="wrapper" data-testid="header-wrapper">
       <MenuItems items={MENU_ITEMS} />
-      <div className="right-icon">
+      <div className="search-and-theme">
         <Loupe
           className="loupe"
           data-testid="header-loupe"
