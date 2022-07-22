@@ -6,13 +6,13 @@
 }
 
 .toggle-wrapper-dark {
-  border: 2px solid white;
+  border: 1px solid white;
   background-color: black;
 }
 
 .toggle-wrapper-light {
-  border: 2px solid black;
-  background-color: white;
+  border: 1px solid black;
+  background-color: rgb(235 236 171 / 52%);
 }
 
 .toggle-dot {
