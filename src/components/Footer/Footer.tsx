@@ -3,6 +3,7 @@ import "./Footer.css";
 import { ReactComponent as LinkedIn } from "../../assets/linkedin-icon.svg";
 import { ReactComponent as GitHub } from "../../assets/github-icon.svg";
 import getColorTheme from "../../utils/getColorTheme";
+
 interface FootersProps {
   setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkThemeOff: boolean;

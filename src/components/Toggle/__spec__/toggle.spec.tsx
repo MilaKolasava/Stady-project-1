@@ -8,9 +8,13 @@ afterEach(() => {
 });
 
 describe("Toggle", () => {
+  const setIsDarkThemeOff = jest.fn();
+
   describe("render tests", () => {
     it("should render wrapper toggle component", () => {
-      const { getByTestId } = render(<Toggle />);
+      const { getByTestId } = render(
+        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={false} />
+      );
 
       expect(getByTestId("toggle-wrapper")).toBeVisible();
     });
@@ -18,7 +22,9 @@ describe("Toggle", () => {
 
   describe("render tests", () => {
     it("should render dot toggle component", () => {
-      const { getByTestId } = render(<Toggle />);
+      const { getByTestId } = render(
+        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={false} />
+      );
 
       expect(getByTestId("toggle-dot")).toBeVisible();
     });
@@ -26,22 +32,24 @@ describe("Toggle", () => {
 
   describe("render tests", () => {
     it("should render switch toggle component", () => {
-      const { getByTestId } = render(<Toggle />);
+      const { getByTestId } = render(
+        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={false} />
+      );
 
       expect(getByTestId("toggle-switch")).toBeVisible();
     });
   });
 
   describe("click handling test", () => {
-    it.skip("should execute onClick function when clicked", () => {
-      const { getByTestId } = render(<Toggle />);
-      expect(getByTestId("toggle-wrapper")).toHaveStyle({
-        backgroundcolor: "black",
-      });
+    it("should execute onClick function when clicked", () => {
+      const { getByTestId } = render(
+        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={true} />
+      );
+
       fireEvent.click(screen.getByText(/DARK/i));
-      expect(getByTestId("toggle-wrapper")).toHaveStyle({
-        backgroundcolor: "white",
-      });
+
+      expect(setIsDarkThemeOff).toBeCalled();
+      expect(setIsDarkThemeOff).toBeCalledWith(false);
     });
   });
 });

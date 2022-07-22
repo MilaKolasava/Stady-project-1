@@ -8,23 +8,36 @@ afterEach(() => {
 });
 
 test("should render wrapper", () => {
-  const setModalActive = jest.fn;
+  const setModalActive = jest.fn();
+  const setIsDarkThemeOff = jest.fn();
+  const isDarkThemeOff = false;
 
   render(
     <BrowserRouter>
-      <Header setModalActive={setModalActive} />
+      <Header
+        setModalActive={setModalActive}
+        setIsDarkThemeOff={setIsDarkThemeOff}
+        isDarkThemeOff={isDarkThemeOff}
+      />
     </BrowserRouter>
   );
   const headerElement = screen.getByTestId("header-wrapper");
+
   expect(headerElement).toBeInTheDocument();
 });
 
 test("should render loupe", () => {
-  const setModalActive = jest.fn;
+  const setModalActive = jest.fn();
+  const setIsDarkThemeOff = jest.fn();
+  const isDarkThemeOff = false;
 
   render(
     <BrowserRouter>
-      <Header setModalActive={setModalActive} />
+      <Header
+        setModalActive={setModalActive}
+        setIsDarkThemeOff={setIsDarkThemeOff}
+        isDarkThemeOff={isDarkThemeOff}
+      />
     </BrowserRouter>
   );
   const headerElement = screen.getByTestId("header-loupe");
