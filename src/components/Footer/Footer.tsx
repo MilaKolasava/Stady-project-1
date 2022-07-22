@@ -2,7 +2,7 @@ import React from "react";
 import "./Footer.css";
 import { ReactComponent as LinkedIn } from "../../assets/linkedin-icon.svg";
 import { ReactComponent as GitHub } from "../../assets/github-icon.svg";
-
+import getColorTheme from "../../utils/getColorTheme";
 interface FootersProps {
   setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkThemeOff: boolean;
@@ -11,7 +11,7 @@ interface FootersProps {
 function Footer(props: FootersProps) {
   return (
     <nav
-      className={`wrapper wrapper-${props.isDarkThemeOff ? "dark" : "light"}`}
+      className={`wrapper wrapper-${getColorTheme(props.isDarkThemeOff)}`}
       id="footer"
       data-testid="footer-wrapper"
     >
@@ -20,16 +20,16 @@ function Footer(props: FootersProps) {
         target="_blank"
       >
         <LinkedIn
-          className={`svg-picture svg-picture-${
-            props.isDarkThemeOff ? "dark" : "light"
-          }`}
+          className={`svg-picture svg-picture-${getColorTheme(
+            props.isDarkThemeOff
+          )}`}
         />
       </a>
       <a href="https://github.com/MilaKolasava" target="_blank">
         <GitHub
-          className={`svg-picture svg-picture-${
-            props.isDarkThemeOff ? "dark" : "light"
-          }`}
+          className={`svg-picture svg-picture-${getColorTheme(
+            props.isDarkThemeOff
+          )}`}
         />
       </a>
       <p>@Copyright 2022 Kolasava M.</p>

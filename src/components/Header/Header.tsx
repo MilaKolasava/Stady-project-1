@@ -4,6 +4,7 @@ import { ReactComponent as Loupe } from "../../assets/loupe.svg";
 import MenuItems from "../MenuItems/MenuItems";
 import { MENU_ITEMS } from "./Header.constant";
 import Toggle from "../Toggle/Toggle";
+import getColorTheme from "../../utils/getColorTheme";
 
 interface HeadersProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -14,13 +15,13 @@ interface HeadersProps {
 function Header(props: HeadersProps) {
   return (
     <nav
-      className={`wrapper wrapper-${props.isDarkThemeOff ? "dark" : "light"}`}
+      className={`wrapper wrapper-${getColorTheme(props.isDarkThemeOff)}`}
       data-testid="header-wrapper"
     >
       <MenuItems items={MENU_ITEMS} />
       <div className="search-and-theme">
         <Loupe
-          className={`loupe-${props.isDarkThemeOff ? "dark" : "light"}`}
+          className={`loupe loupe-${getColorTheme(props.isDarkThemeOff)}`}
           data-testid="header-loupe"
           onClick={() => {
             props.setModalActive(true);
