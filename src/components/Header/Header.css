@@ -1,22 +1,41 @@
 .wrapper {
-  background-color: black;
   width: 100vw;
   max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
   font-size: 10px;
 }
 
+.wrapper-dark {
+  background-color: black;
+  color: white;
+}
+
+.wrapper-dark a {
+  color: white;
+}
+
+.wrapper-light {
+  background-color: rgb(235 236 171 / 52%);
+  color: black;
+}
+
+.wrapper-light a {
+  color: black;
+}
 .list-navigation {
   display: flex;
   column-gap: 20px;
   list-style-type: none;
 }
 
-.loupe * {
+.loupe-dark * {
   fill: white;
+}
+
+.loupe-light * {
+  fill: black;
 }
 
 .loupe {

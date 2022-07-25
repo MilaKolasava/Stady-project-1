@@ -1,5 +1,9 @@
-.svg-picture * {
+.svg-picture-dark * {
   fill: white;
+}
+
+.svg-picture-light * {
+  fill: black;
 }
 
 .svg-picture {
@@ -9,6 +13,4 @@
 
 #footer {
   justify-content: center;
-  color: white;
-  font-size: 10px;
 }

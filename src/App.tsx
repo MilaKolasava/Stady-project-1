@@ -8,16 +8,24 @@ import ModalWindow from "./components/ModalWindow/ModalWindow";
 
 function App() {
   const [modalActive, setModalActive] = useState<boolean>(() => false);
+  const [isDarkThemeOff, setIsDarkThemeOff] = useState<boolean>(() => true);
 
   return (
     <>
-      <Header setModalActive={setModalActive} />
+      <Header
+        setModalActive={setModalActive}
+        setIsDarkThemeOff={setIsDarkThemeOff}
+        isDarkThemeOff={isDarkThemeOff}
+      />
       {modalActive && <ModalWindow setModalActive={setModalActive} />}
       <Routes>
         <Route path="about" element={<About />} />
         <Route path="/" element={<Jumbotron />} />
       </Routes>
-      <Footer />
+      <Footer
+        setIsDarkThemeOff={setIsDarkThemeOff}
+        isDarkThemeOff={isDarkThemeOff}
+      />
     </>
   );
 }
