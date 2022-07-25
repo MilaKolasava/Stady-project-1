@@ -1,5 +1,6 @@
 import React from "react";
 import "./Toggle.css";
+import getColorTheme from "../../utils/getColorTheme";
 
 interface TogglesProps {
   setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
@@ -9,9 +10,9 @@ interface TogglesProps {
 function Toggle(props: TogglesProps) {
   return (
     <div
-      className={`toggle-wrapper toggle-wrapper-${
-        props.isDarkThemeOff ? "dark" : "light"
-      }`}
+      className={`toggle-wrapper toggle-wrapper-${getColorTheme(
+        props.isDarkThemeOff
+      )}`}
       data-testid="toggle-wrapper"
       onClick={() => {
         props.setIsDarkThemeOff(!props.isDarkThemeOff);
