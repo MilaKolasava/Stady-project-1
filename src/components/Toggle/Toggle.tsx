@@ -30,7 +30,7 @@ function Toggle(props: TogglesProps) {
         }`}
         data-testid="toggle-switch"
       >
-        {props.isDarkThemeOff ? "DARK" : "LIGHT"}
+        {getColorTheme(props.isDarkThemeOff).toUpperCase()}
       </div>
     </div>
   );
