@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { IntlProvider } from "react-intl";
-import { LOCALES } from "./Locale";
+import { LOCALES } from "./Locales";
 import messages from "./messages/AllLang";
 
 const Provider = ({ children, locale = LOCALES.ENGLISH }) => (
