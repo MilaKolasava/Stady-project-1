@@ -8,7 +8,7 @@ interface ProviderProps {
   locale: string;
 }
 
-const Provider = ({ children, locale }: ProviderProps) => (
+const Provider = ({ children, locale = LOCALES.ENGLISH }: ProviderProps) => (
   <IntlProvider
     locale={locale}
     textComponent={Fragment}
