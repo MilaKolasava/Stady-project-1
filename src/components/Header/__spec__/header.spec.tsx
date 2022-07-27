@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen, cleanup } from "@testing-library/react";
 import Header from "../Header";
 import { BrowserRouter } from "react-router-dom";
+import { I18nProvider, LOCALES } from "../../../i18n";
 
 afterEach(() => {
   cleanup();
@@ -13,13 +14,15 @@ test("should render wrapper", () => {
   const isDarkThemeOff = false;
 
   render(
-    <BrowserRouter>
-      <Header
-        setModalActive={setModalActive}
-        setIsDarkThemeOff={setIsDarkThemeOff}
-        isDarkThemeOff={isDarkThemeOff}
-      />
-    </BrowserRouter>
+    <I18nProvider locale={LOCALES.ENGLISH}>
+      <BrowserRouter>
+        <Header
+          setModalActive={setModalActive}
+          setIsDarkThemeOff={setIsDarkThemeOff}
+          isDarkThemeOff={isDarkThemeOff}
+        />
+      </BrowserRouter>
+    </I18nProvider>
   );
   const headerElement = screen.getByTestId("header-wrapper");
 
@@ -32,13 +35,15 @@ test("should render loupe", () => {
   const isDarkThemeOff = false;
 
   render(
-    <BrowserRouter>
-      <Header
-        setModalActive={setModalActive}
-        setIsDarkThemeOff={setIsDarkThemeOff}
-        isDarkThemeOff={isDarkThemeOff}
-      />
-    </BrowserRouter>
+    <I18nProvider locale={LOCALES.ENGLISH}>
+      <BrowserRouter>
+        <Header
+          setModalActive={setModalActive}
+          setIsDarkThemeOff={setIsDarkThemeOff}
+          isDarkThemeOff={isDarkThemeOff}
+        />
+      </BrowserRouter>
+    </I18nProvider>
   );
   const headerElement = screen.getByTestId("header-loupe");
   expect(headerElement).toBeInTheDocument();
