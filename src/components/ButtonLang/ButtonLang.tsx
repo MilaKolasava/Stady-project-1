@@ -17,13 +17,13 @@ function ButtonLang(props: ButtonsLangProps) {
       </div>
       <div
         className="button-change button-change-by"
-        onClick={() => props.setLocale(LOCALES.POLISH)}
+        onClick={() => props.setLocale(LOCALES.BELARUSIAN)}
       >
         BY
       </div>
       <div
         className="button-change button-change-pl"
-        onClick={() => props.setLocale(LOCALES.BELARUSIAN)}
+        onClick={() => props.setLocale(LOCALES.POLISH)}
       >
         PL
       </div>
