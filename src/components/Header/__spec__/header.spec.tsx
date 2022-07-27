@@ -12,6 +12,8 @@ test("should render wrapper", () => {
   const setModalActive = jest.fn();
   const setIsDarkThemeOff = jest.fn();
   const isDarkThemeOff = false;
+  const setLocale = jest.fn();
+  const locale = "MAIN";
 
   render(
     <I18nProvider locale={LOCALES.ENGLISH}>
@@ -20,6 +22,8 @@ test("should render wrapper", () => {
           setModalActive={setModalActive}
           setIsDarkThemeOff={setIsDarkThemeOff}
           isDarkThemeOff={isDarkThemeOff}
+          setLocale={setLocale}
+          locale={locale}
         />
       </BrowserRouter>
     </I18nProvider>
@@ -33,6 +37,8 @@ test("should render loupe", () => {
   const setModalActive = jest.fn();
   const setIsDarkThemeOff = jest.fn();
   const isDarkThemeOff = false;
+  const setLocale = jest.fn();
+  const locale = "MAIN";
 
   render(
     <I18nProvider locale={LOCALES.ENGLISH}>
@@ -41,6 +47,8 @@ test("should render loupe", () => {
           setModalActive={setModalActive}
           setIsDarkThemeOff={setIsDarkThemeOff}
           isDarkThemeOff={isDarkThemeOff}
+          setLocale={setLocale}
+          locale={locale}
         />
       </BrowserRouter>
     </I18nProvider>
