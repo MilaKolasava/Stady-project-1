@@ -12,7 +12,7 @@ test("should render menuItem", () => {
   render(
     <I18nProvider locale={LOCALES.ENGLISH}>
       <BrowserRouter>
-        <MenuItem title={""} path={""} />
+        <MenuItem title={"MAIN"} path={""} />
       </BrowserRouter>
     </I18nProvider>
   );
