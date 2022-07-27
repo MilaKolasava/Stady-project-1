@@ -42,6 +42,13 @@ jobs:
           key: cypress-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache
+  types_check:
+    executor: cypress
+    steps:
+      - checkout
+      - restore_yarn_install
+      - run: npm install
+      - run: npm run types:check
   test:
     executor: cypress
     steps:
@@ -56,6 +63,9 @@ workflows:
   main:
     jobs:
       - checkout_code
-      - test:
+      - types_check:
           requires:
             - checkout_code
+      - test:
+          requires:
+            - types_check
