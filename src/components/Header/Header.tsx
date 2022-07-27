@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { ReactComponent as Loupe } from "../../assets/loupe.svg";
 import MenuItems from "../MenuItems/MenuItems";

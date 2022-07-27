@@ -3,6 +3,7 @@ import { render, screen, cleanup } from "@testing-library/react";
 import MenuItems from "../MenuItems";
 import { MENU_ITEMS } from "../../Header/Header.constant";
 import { BrowserRouter } from "react-router-dom";
+import { I18nProvider, LOCALES } from "../../../i18n";
 
 afterEach(() => {
   cleanup();
@@ -10,9 +11,11 @@ afterEach(() => {
 
 test("should render menuItems component", () => {
   render(
-    <BrowserRouter>
-      <MenuItems items={MENU_ITEMS} />
-    </BrowserRouter>
+    <I18nProvider locale={LOCALES.ENGLISH}>
+      <BrowserRouter>
+        <MenuItems items={MENU_ITEMS} />
+      </BrowserRouter>
+    </I18nProvider>
   );
   const menuItemsElement = screen.getAllByTestId("menu-item");
   expect(menuItemsElement).toHaveLength(2);

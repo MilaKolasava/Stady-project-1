@@ -1,4 +1,5 @@
 import React from "react";
+import { useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import "./MenuItem.css";
 
@@ -8,9 +9,11 @@ interface MenuItemProps {
 }
 
 function MenuItem(props: MenuItemProps) {
+  const intl = useIntl();
+
   return (
     <Link className="navigation-link" to={props.path}>
-      <li data-testid="menu-item">{props.title}</li>
+      <li data-testid="menu-item">{intl.formatMessage({ id: props.title })}</li>
     </Link>
   );
 }

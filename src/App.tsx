@@ -5,13 +5,14 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
+import { I18nProvider, LOCALES } from "./i18n";
 
 function App() {
   const [modalActive, setModalActive] = useState<boolean>(() => false);
   const [isDarkThemeOff, setIsDarkThemeOff] = useState<boolean>(() => true);
 
   return (
-    <>
+    <I18nProvider locale={LOCALES.ENGLISH}>
       <Header
         setModalActive={setModalActive}
         setIsDarkThemeOff={setIsDarkThemeOff}
@@ -26,7 +27,7 @@ function App() {
         setIsDarkThemeOff={setIsDarkThemeOff}
         isDarkThemeOff={isDarkThemeOff}
       />
-    </>
+    </I18nProvider>
   );
 }
 
