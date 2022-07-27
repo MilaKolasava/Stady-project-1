@@ -10,6 +10,7 @@ import { I18nProvider, LOCALES } from "./i18n";
 function App() {
   const [modalActive, setModalActive] = useState<boolean>(() => false);
   const [isDarkThemeOff, setIsDarkThemeOff] = useState<boolean>(() => true);
+  const [locale, setLocale] = useState<string>(() => LOCALES.ENGLISH);
 
   return (
     <I18nProvider locale={LOCALES.ENGLISH}>
@@ -17,6 +18,8 @@ function App() {
         setModalActive={setModalActive}
         setIsDarkThemeOff={setIsDarkThemeOff}
         isDarkThemeOff={isDarkThemeOff}
+        setLocale={setLocale}
+        locale={locale}
       />
       {modalActive && <ModalWindow setModalActive={setModalActive} />}
       <Routes>
