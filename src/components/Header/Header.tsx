@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { ReactComponent as Loupe } from "../../assets/loupe.svg";
 import MenuItems from "../MenuItems/MenuItems";
 import { MENU_ITEMS } from "./Header.constant";
 import Toggle from "../Toggle/Toggle";
 import getColorTheme from "../../utils/getColorTheme";
-import { LOCALES } from "../../i18n/Locales";
 
 interface HeadersProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
   setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkThemeOff: boolean;
-  setLocale: React.Dispatch<React.SetStateAction<string>>;
 }
 
 function Header(props: HeadersProps) {
@@ -35,9 +33,6 @@ function Header(props: HeadersProps) {
           setIsDarkThemeOff={props.setIsDarkThemeOff}
           isDarkThemeOff={props.isDarkThemeOff}
         />
-        <button onClick={() => props.setLocale(LOCALES.ENGLISH)}>EN</button>
-        <button onClick={() => props.setLocale(LOCALES.POLISH)}>PL</button>
-        <button onClick={() => props.setLocale(LOCALES.BELARUSIAN)}>BY</button>
       </div>
     </nav>
   );
