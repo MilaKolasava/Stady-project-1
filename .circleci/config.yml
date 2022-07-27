@@ -47,6 +47,7 @@ jobs:
     steps:
       - checkout
       - restore_yarn_install
+      - run: npm install
       - run: npm run types:check
   test:
     executor: cypress
