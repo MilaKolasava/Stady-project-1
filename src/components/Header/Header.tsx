@@ -5,11 +5,14 @@ import MenuItems from "../MenuItems/MenuItems";
 import { MENU_ITEMS } from "./Header.constant";
 import Toggle from "../Toggle/Toggle";
 import getColorTheme from "../../utils/getColorTheme";
+import ButtonLang from "../ButtonLang/ButtonLang";
 
 interface HeadersProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
   setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
   isDarkThemeOff: boolean;
+  setLocale: React.Dispatch<React.SetStateAction<string>>;
+  locale: string;
 }
 
 function Header(props: HeadersProps) {
@@ -33,6 +36,7 @@ function Header(props: HeadersProps) {
           setIsDarkThemeOff={props.setIsDarkThemeOff}
           isDarkThemeOff={props.isDarkThemeOff}
         />
+        <ButtonLang setLocale={props.setLocale} locale={props.locale} />
       </div>
     </nav>
   );
