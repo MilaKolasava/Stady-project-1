@@ -15,6 +15,7 @@ function ButtonLang(props: ButtonsLangProps) {
           props.locale === LOCALES.ENGLISH ? "active" : ""
         }`}
         onClick={() => props.setLocale(LOCALES.ENGLISH)}
+        data-testid="button-en"
       >
         EN
       </div>
@@ -23,6 +24,7 @@ function ButtonLang(props: ButtonsLangProps) {
           props.locale === LOCALES.BELARUSIAN ? "active" : ""
         }`}
         onClick={() => props.setLocale(LOCALES.BELARUSIAN)}
+        data-testid="button-by"
       >
         BY
       </div>
@@ -31,6 +33,7 @@ function ButtonLang(props: ButtonsLangProps) {
           props.locale === LOCALES.POLISH ? "active" : ""
         }`}
         onClick={() => props.setLocale(LOCALES.POLISH)}
+        data-testid="button-pl"
       >
         PL
       </div>
