@@ -13,7 +13,7 @@ function App() {
   const [locale, setLocale] = useState<string>(() => LOCALES.ENGLISH);
 
   return (
-    <I18nProvider locale={locale}>
+    <I18nProvider locale={LOCALES.ENGLISH}>
       <Header
         setModalActive={setModalActive}
         setIsDarkThemeOff={setIsDarkThemeOff}
