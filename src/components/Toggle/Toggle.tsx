@@ -33,7 +33,9 @@ function Toggle(props: TogglesProps) {
         }`}
         data-testid="toggle-switch"
       >
-        {intl.formatMessage({ id: getColorTheme(props.isDarkThemeOff) })}
+        {props.isDarkThemeOff
+          ? intl.formatMessage({ id: "dark" })
+          : intl.formatMessage({ id: "light" })}
       </div>
     </div>
   );
