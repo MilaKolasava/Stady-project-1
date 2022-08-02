@@ -9,9 +9,31 @@ interface ModalWindowProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+type searchResalt = Array<searchRepoType>;
+
+type searchRepoType = {
+  name: string;
+  id: number;
+  html_url: string;
+};
+
 function ModalWindow(props: ModalWindowProps) {
-  const [selectedRepo, setSelectedRepo] = useState<string | null>(null);
-  //axios.get(https://api.github.com/users/MilaKolasava/repos);
+  const [selectedRepo, setSelectedRepo] = useState<searchRepoType | null>(null);
+  const [repozitories, setRepozitories] = useState<searchRepoType[]>([]);
+
+  useEffect(() => {
+    if (selectedRepo) {
+      document.title = selectedRepo.name;
+    }
+  }, [selectedRepo]);
+
+  useEffect(() => {
+    axios
+      .get<searchResalt>("https://api.github.com/users/MilaKolasava/repos")
+      .then((response) => {
+        setRepozitories(response.data);
+      });
+  }, []);
 
   return (
     <div className="modalWindow" data-testid="modal-window">
@@ -25,15 +47,15 @@ function ModalWindow(props: ModalWindowProps) {
         </div>
         <h2 className="modal-header">Repository List</h2>
         <ul>
-          {["Repo1", "Repo2"].map((repo) => (
+          {repozitories.map((repo) => (
             <li
+              key={repo.id}
               className={selectedRepo === repo ? "selected" : ""}
               onClick={() => {
                 setSelectedRepo(repo);
-                document.title = repo;
               }}
             >
-              {repo}
+              {repo.name} {repo.html_url}
             </li>
           ))}
         </ul>
