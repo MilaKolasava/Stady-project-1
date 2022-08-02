@@ -46,7 +46,7 @@ function ModalWindow(props: ModalWindowProps) {
           />
         </div>
         <h2 className="modal-header">Repository List</h2>
-        <ul>
+        <ol>
           {repozitories.map((repo) => (
             <li
               key={repo.id}
@@ -55,10 +55,13 @@ function ModalWindow(props: ModalWindowProps) {
                 setSelectedRepo(repo);
               }}
             >
-              {repo.name} {repo.html_url}
+              {repo.name} <br />
+              <a href="{repo.html_url}" target="_blank">
+                {repo.html_url}
+              </a>
             </li>
           ))}
-        </ul>
+        </ol>
         <div></div>
       </div>
     </div>
