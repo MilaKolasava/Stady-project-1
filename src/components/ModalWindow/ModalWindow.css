@@ -16,4 +16,19 @@
   border-radius: 2px;
   height: 200px;
   width: 300px;
+  position: relative;
+}
+
+.modal-header {
+  text-align: center;
+}
+
+.selected {
+  background-color: burlywood;
+}
+
+.modalCross {
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
