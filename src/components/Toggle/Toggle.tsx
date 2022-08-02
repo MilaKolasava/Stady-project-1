@@ -1,6 +1,7 @@
 import React from "react";
 import "./Toggle.css";
 import getColorTheme from "../../utils/getColorTheme";
+import { useIntl } from "react-intl";
 
 interface TogglesProps {
   setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
@@ -8,6 +9,8 @@ interface TogglesProps {
 }
 
 function Toggle(props: TogglesProps) {
+  const intl = useIntl();
+
   return (
     <div
       className={`toggle-wrapper toggle-wrapper-${getColorTheme(
@@ -30,7 +33,7 @@ function Toggle(props: TogglesProps) {
         }`}
         data-testid="toggle-switch"
       >
-        {getColorTheme(props.isDarkThemeOff).toUpperCase()}
+        {intl.formatMessage({ id: getColorTheme(props.isDarkThemeOff) })}
       </div>
     </div>
   );
