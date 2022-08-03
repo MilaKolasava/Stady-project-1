@@ -40,17 +40,21 @@ function ModalWindow(props: ModalWindowProps) {
   return (
     <div className="modalWindow" data-testid="modal-window">
       <div className="modalContent" data-testid="modal-content">
-        <div className="modalCross">
-          <Cross
-            onClick={() => {
-              props.setModalActive(false);
-            }}
-          />
+        <div className="modal-header-wrapper">
+          <div className="modal-header">
+            <Cross
+              className="modalCross"
+              onClick={() => {
+                props.setModalActive(false);
+              }}
+            />
+            <h2 className="modal-header">
+              {" "}
+              {intl.formatMessage({ id: "repositoryList" })}
+            </h2>
+          </div>
         </div>
-        <h2 className="modal-header">
-          {" "}
-          {intl.formatMessage({ id: "repositoryList" })}
-        </h2>
+
         <ol>
           {repositories.map((repo) => (
             <li
@@ -60,7 +64,7 @@ function ModalWindow(props: ModalWindowProps) {
                 setSelectedRepo(repo);
               }}
             >
-              {repo.name} <br />
+              <b>{repo.name}</b> <br />
               <a href={repo.html_url} target="_blank">
                 {repo.html_url}
               </a>

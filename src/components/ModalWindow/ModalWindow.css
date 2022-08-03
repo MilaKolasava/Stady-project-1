@@ -11,17 +11,45 @@
 }
 
 .modalContent {
-  padding: 20px;
   background-color: antiquewhite;
   border-radius: 2px;
-  height: 200px;
-  width: 300px;
-  position: relative;
+  height: 50vh;
+  width: auto;
+  overflow: scroll;
 }
 
-.modal-header {
-  text-align: center;
+.modal-header-wrapper {
+  position: sticky;
+  top: 0px;
+  background-color: rgb(238, 205, 165);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.modalCross {
+  position: absolute;
+}
+.modalContent > ol > li {
+  margin-bottom: 10px;
+}
+
+.modalContent ol {
+  counter-reset: item;
+}
+.modalContent ol li {
+  display: block;
+}
+.modalContent ol li:before {
+  content: counter(item) ". ";
+  counter-increment: item;
+  font-weight: bold;
+}
+
+/* .modal-header {
+  margin: 0 auto;
+  text-align: center;
+} */
 
 .selected {
   background-color: burlywood;
@@ -29,6 +57,12 @@
 
 .modalCross {
   position: absolute;
-  right: 5px;
-  top: 5px;
+  right: 15px;
+  top: 10px;
 }
+
+/* .modal-header-wrapper {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+} */
