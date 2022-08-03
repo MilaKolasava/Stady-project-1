@@ -9,17 +9,17 @@ interface ModalWindowProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-type searchResalt = Array<searchRepoType>;
+type SearchResult = Array<Repository>;
 
-type searchRepoType = {
+type Repository = {
   name: string;
   id: number;
   html_url: string;
 };
 
 function ModalWindow(props: ModalWindowProps) {
-  const [selectedRepo, setSelectedRepo] = useState<searchRepoType | null>(null);
-  const [repozitories, setRepozitories] = useState<searchRepoType[]>([]);
+  const [selectedRepo, setSelectedRepo] = useState<Repository | null>(null);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
 
   useEffect(() => {
     if (selectedRepo) {
@@ -29,9 +29,9 @@ function ModalWindow(props: ModalWindowProps) {
 
   useEffect(() => {
     axios
-      .get<searchResalt>("https://api.github.com/users/MilaKolasava/repos")
+      .get<SearchResult>("https://api.github.com/users/MilaKolasava/repos")
       .then((response) => {
-        setRepozitories(response.data);
+        setRepositories(response.data);
       });
   }, []);
 
@@ -47,7 +47,7 @@ function ModalWindow(props: ModalWindowProps) {
         </div>
         <h2 className="modal-header">Repository List</h2>
         <ol>
-          {repozitories.map((repo) => (
+          {repositories.map((repo) => (
             <li
               key={repo.id}
               className={selectedRepo === repo ? "selected" : ""}
