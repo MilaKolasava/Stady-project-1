@@ -29,40 +29,25 @@
 
 .modalCross {
   position: absolute;
-}
-.modalContent > ol > li {
-  margin-bottom: 10px;
+  right: 15px;
+  top: 10px;
 }
 
 .modalContent ol {
   counter-reset: item;
 }
+
 .modalContent ol li {
   display: block;
+  margin-bottom: 10px;
 }
+
 .modalContent ol li:before {
   content: counter(item) ". ";
   counter-increment: item;
   font-weight: bold;
 }
 
-/* .modal-header {
-  margin: 0 auto;
-  text-align: center;
-} */
-
 .selected {
   background-color: burlywood;
 }
-
-.modalCross {
-  position: absolute;
-  right: 15px;
-  top: 10px;
-}
-
-/* .modal-header-wrapper {
-  position: fixed;
-  z-index: 1000;
-  width: 100%;
-} */

@@ -1,4 +1,3 @@
-import { Console, error } from "console";
 import React, { useState } from "react";
 import "./ModalWindow.css";
 import axios from "axios";
