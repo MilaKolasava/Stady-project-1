@@ -29,7 +29,7 @@ function RepositoriesList() {
   }, []);
 
   return (
-    <ol>
+    <ol data-testid="repositories-list-items">
       {repositories.map((repository) => (
         <li
           key={repository.id}
