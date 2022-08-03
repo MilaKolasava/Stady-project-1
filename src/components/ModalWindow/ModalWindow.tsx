@@ -1,4 +1,4 @@
-import { error } from "console";
+import { Console, error } from "console";
 import React, { useState } from "react";
 import "./ModalWindow.css";
 import axios from "axios";
@@ -56,13 +56,12 @@ function ModalWindow(props: ModalWindowProps) {
               }}
             >
               {repo.name} <br />
-              <a href="{repo.html_url}" target="_blank">
+              <a href={repo.html_url} target="_blank">
                 {repo.html_url}
               </a>
             </li>
           ))}
         </ol>
-        <div></div>
       </div>
     </div>
   );
