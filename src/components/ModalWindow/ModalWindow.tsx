@@ -2,7 +2,7 @@ import React from "react";
 import "./ModalWindow.css";
 import { ReactComponent as Cross } from "../../assets/cross.svg";
 import { useIntl } from "react-intl";
-import ModalList from "../ModalList/ModalList";
+import RepositoriesList from "../RepositoriesList/RepositoriesList";
 
 interface ModalWindowProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,7 +28,7 @@ function ModalWindow(props: ModalWindowProps) {
             </h2>
           </div>
         </div>
-        <ModalList />
+        <RepositoriesList />
       </div>
     </div>
   );

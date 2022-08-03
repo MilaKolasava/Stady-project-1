@@ -9,15 +9,16 @@ type Repository = {
   html_url: string;
 };
 
-function ModalList() {
+function RepositoriesList() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
-  const [selectedRepo, setSelectedRepo] = useState<Repository | null>(null);
+  const [selectedRepositiry, setSelectedRepository] =
+    useState<Repository | null>(null);
 
   useEffect(() => {
-    if (selectedRepo) {
-      document.title = selectedRepo.name;
+    if (selectedRepositiry) {
+      document.title = selectedRepositiry.name;
     }
-  }, [selectedRepo]);
+  }, [selectedRepositiry]);
 
   useEffect(() => {
     axios
@@ -29,17 +30,17 @@ function ModalList() {
 
   return (
     <ol>
-      {repositories.map((repo) => (
+      {repositories.map((repository) => (
         <li
-          key={repo.id}
-          className={selectedRepo === repo ? "selected" : ""}
+          key={repository.id}
+          className={selectedRepositiry === repository ? "selected" : ""}
           onClick={() => {
-            setSelectedRepo(repo);
+            setSelectedRepository(repository);
           }}
         >
-          <b>{repo.name}</b> <br />
-          <a href={repo.html_url} target="_blank">
-            {repo.html_url}
+          <b>{repository.name}</b> <br />
+          <a href={repository.html_url} target="_blank">
+            {repository.html_url}
           </a>
         </li>
       ))}
@@ -47,4 +48,4 @@ function ModalList() {
   );
 }
 
-export default ModalList;
+export default RepositoriesList;
