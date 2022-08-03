@@ -4,6 +4,7 @@ import "./ModalWindow.css";
 import axios from "axios";
 import { useEffect } from "react";
 import { ReactComponent as Cross } from "../../assets/cross.svg";
+import { useIntl } from "react-intl";
 
 interface ModalWindowProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -20,6 +21,7 @@ type Repository = {
 function ModalWindow(props: ModalWindowProps) {
   const [selectedRepo, setSelectedRepo] = useState<Repository | null>(null);
   const [repositories, setRepositories] = useState<Repository[]>([]);
+  const intl = useIntl();
 
   useEffect(() => {
     if (selectedRepo) {
@@ -45,7 +47,10 @@ function ModalWindow(props: ModalWindowProps) {
             }}
           />
         </div>
-        <h2 className="modal-header">Repository List</h2>
+        <h2 className="modal-header">
+          {" "}
+          {intl.formatMessage({ id: "repositoryList" })}
+        </h2>
         <ol>
           {repositories.map((repo) => (
             <li

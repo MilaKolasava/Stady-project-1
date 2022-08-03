@@ -6,5 +6,6 @@ export default {
     about: "ПРА НАС",
     dark: "ЦЁМНАЯ",
     light: "СВЕТЛАЯ",
+    repositoryList: "Cпіс рэпазітараў",
   },
 };
