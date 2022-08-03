@@ -14,9 +14,10 @@ function ModalWindow(props: ModalWindowProps) {
   return (
     <div className="modalWindow" data-testid="modal-window">
       <div className="modalContent" data-testid="modal-content">
-        <div className="modal-header-wrapper">
-          <div className="modal-header">
+        <div className="modal-header-wrapper" data-testid="modal-wrapper">
+          <div className="modal-header" data-testid="modal-header">
             <Cross
+              data-testid="closed-icon"
               className="modalCross"
               onClick={() => {
                 props.setModalActive(false);
