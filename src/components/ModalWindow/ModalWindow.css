@@ -15,7 +15,14 @@
   border-radius: 2px;
   height: 50vh;
   width: auto;
-  overflow: scroll;
+  overflow-y: scroll;
+}
+.modalContent::-webkit-scrollbar {
+  width: 3px;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  background-color: #a3915d;
 }
 
 .modal-header-wrapper {
