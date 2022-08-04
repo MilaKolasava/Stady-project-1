@@ -33,7 +33,7 @@ test("should render wrapper", () => {
   expect(headerElement).toBeInTheDocument();
 });
 
-test("should render loupe", () => {
+test("should render storage", () => {
   const setModalActive = jest.fn();
   const setIsDarkThemeOff = jest.fn();
   const isDarkThemeOff = false;
@@ -53,6 +53,6 @@ test("should render loupe", () => {
       </BrowserRouter>
     </I18nProvider>
   );
-  const headerElement = screen.getByTestId("header-loupe");
+  const headerElement = screen.getByTestId("header-storage");
   expect(headerElement).toBeInTheDocument();
 });

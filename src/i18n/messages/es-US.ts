@@ -6,5 +6,6 @@ export default {
     about: "ABOUT",
     dark: "DARK",
     light: "LIGHT",
+    repositoryList: "Repositories list",
   },
 };
