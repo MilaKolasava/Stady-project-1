@@ -1,0 +1,19 @@
+.weather-wrapper {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  bottom: 31px;
+  right: 0;
+  background-color: rgba(237, 212, 85, 0.5);
+}
+
+.weather-header {
+  margin: 0 auto;
+  padding: 0;
+  background-color: rgba(106, 95, 43, 0.5);
+}
+
+.weather-header h2 {
+  margin: 0 auto;
+  text-align: center;
+}
