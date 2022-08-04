@@ -6,5 +6,6 @@ export default {
     about: "O NAS",
     dark: "CIEMNY",
     light: "ŚWIATŁO",
+    repositoryList: "Lista repozytoriów",
   },
 };

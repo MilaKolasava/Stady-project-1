@@ -7,7 +7,6 @@ interface ButtonsLangProps {
   setLocale: React.Dispatch<React.SetStateAction<string>>;
   locale: string;
 }
-
 function ButtonLang(props: ButtonsLangProps) {
   return (
     <>
