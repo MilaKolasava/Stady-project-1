@@ -3,19 +3,29 @@ import { API_KEY } from "./Weather.constant";
 import "./Weather.css";
 import axios from "axios";
 
-type DataResult = Array<Items>;
-
-type Items = {
-  name: string;
+type Main = {
   temp: number;
+};
+
+type Name = {
+  name: string;
+};
+
+type Sys = {
   sunrise: number;
   sunset: number;
+};
+
+type WeatherResponse = {
+  main: Main;
+  sys: Sys;
+  name: Name;
 };
 
 function Weather() {
   const [lat, setLat] = useState<number | null>(null);
   const [long, setLong] = useState<number | null>(null);
-  const [data, setData] = useState({});
+  const [data, setData] = useState<WeatherResponse | null>(null);
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -29,7 +39,7 @@ function Weather() {
   useEffect(() => {
     if (lat && long) {
       axios
-        .get<DataResult>(
+        .get<WeatherResponse>(
           `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`
         )
         .then((response) => {
@@ -41,12 +51,11 @@ function Weather() {
 
   return (
     <div className="weather-wrapper">
-      <div className="weather-header">
-        {data?.main.name ? <h2>{data?.main.name}</h2> : null}
-      </div>
-      <p>{data.main.temp}°C</p>
-      <p>{data.sys.sunrise}</p>
-      <p>{data.sys.sunset}</p>
+      {data && (
+        <div className="weather-header">
+          <h2>{data.name}</h2>
+        </div>
+      )}
     </div>
   );
 }
