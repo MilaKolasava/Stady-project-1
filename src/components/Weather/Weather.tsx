@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API_KEY } from "./Weather.constant";
 import "./Weather.css";
 import axios from "axios";
+import { useIntl } from "react-intl";
 
 type Main = {
   temp: number;
@@ -22,6 +23,7 @@ function Weather() {
   const [lat, setLat] = useState<number | null>(null);
   const [long, setLong] = useState<number | null>(null);
   const [data, setData] = useState<WeatherResponse | null>(null);
+  const intl = useIntl();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
@@ -53,14 +55,17 @@ function Weather() {
             <h2>{data.name}</h2>
           </div>
           <div className="weather-details">
-            <p>Temperature: {data.main.temp}°C</p>
+            <p>
+              <b>{intl.formatMessage({ id: "temperature" })}:</b>{" "}
+              {data.main.temp}°C
+            </p>
             <div className="weather-info-sun">
               <p>
-                Sunrise:{" "}
+                <b>{intl.formatMessage({ id: "sunrise" })}: </b>
                 {new Date(data.sys.sunrise * 1000).toLocaleTimeString("en-IN")}
               </p>
               <p>
-                Sunset:
+                <b>{intl.formatMessage({ id: "sunset" })}: </b>
                 {new Date(data.sys.sunset * 1000).toLocaleTimeString("en-IN")}
               </p>
             </div>

@@ -7,5 +7,8 @@ export default {
     dark: "DARK",
     light: "LIGHT",
     repositoryList: "Repositories list",
+    temperature: "Temperature",
+    sunrise: "Sunrise",
+    sunset: "Sunset",
   },
 };
