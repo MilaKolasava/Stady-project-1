@@ -1,6 +1,6 @@
 .weather-wrapper {
   width: 300px;
-  height: 300px;
+  height: 200px;
   position: absolute;
   bottom: 31px;
   right: 0;
@@ -16,4 +16,18 @@
 .weather-header h2 {
   margin: 0 auto;
   text-align: center;
+}
+
+.weather-details {
+  padding: 10px;
+  height: 148px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-info-sun {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }

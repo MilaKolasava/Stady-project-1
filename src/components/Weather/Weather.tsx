@@ -48,8 +48,23 @@ function Weather() {
   return (
     <div className="weather-wrapper">
       {data && (
-        <div className="weather-header">
-          <h2>{data.name}</h2>
+        <div className="weather-render-block">
+          <div className="weather-header">
+            <h2>{data.name}</h2>
+          </div>
+          <div className="weather-details">
+            <p>Temperature: {data.main.temp}°C</p>
+            <div className="weather-info-sun">
+              <p>
+                Sunrise:{" "}
+                {new Date(data.sys.sunrise * 1000).toLocaleTimeString("en-IN")}
+              </p>
+              <p>
+                Sunset:
+                {new Date(data.sys.sunset * 1000).toLocaleTimeString("en-IN")}
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </div>
