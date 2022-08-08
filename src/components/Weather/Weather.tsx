@@ -27,8 +27,6 @@ function Weather() {
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      console.log("Latitude is:", lat);
-      console.log("Longitude is:", long);
       setLat(position.coords.latitude);
       setLong(position.coords.longitude);
     });
@@ -42,19 +40,21 @@ function Weather() {
         )
         .then((response) => {
           setData(response.data);
-          console.log(response.data);
         });
     }
   }, [lat, long]);
 
   return (
-    <div className="weather-wrapper">
+    <div className="weather-wrapper" data-testid="weather-wrapper">
       {data && (
-        <div className="weather-render-block">
-          <div className="weather-header">
+        <div
+          className="weather-render-block"
+          data-testid="weather-render-block"
+        >
+          <div className="weather-header" data-testid="weather-header">
             <h2>{data.name}</h2>
           </div>
-          <div className="weather-details">
+          <div className="weather-details" data-testid="weather-details">
             <p>
               <b>{intl.formatMessage({ id: "temperature" })}:</b>{" "}
               {data.main.temp}°C
