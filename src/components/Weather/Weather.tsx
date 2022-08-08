@@ -7,10 +7,6 @@ type Main = {
   temp: number;
 };
 
-type Name = {
-  name: string;
-};
-
 type Sys = {
   sunrise: number;
   sunset: number;
@@ -19,7 +15,7 @@ type Sys = {
 type WeatherResponse = {
   main: Main;
   sys: Sys;
-  name: Name;
+  name: string;
 };
 
 function Weather() {
