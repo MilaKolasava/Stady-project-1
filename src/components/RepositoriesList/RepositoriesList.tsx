@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 type SearchResult = Array<Repository>;
 
@@ -13,6 +14,7 @@ function RepositoriesList() {
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [selectedRepositiry, setSelectedRepository] =
     useState<Repository | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     if (selectedRepositiry) {
@@ -21,14 +23,18 @@ function RepositoriesList() {
   }, [selectedRepositiry]);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get<SearchResult>("https://api.github.com/users/MilaKolasava/repos")
       .then((response) => {
         setRepositories(response.data);
+        setIsLoading(false);
       });
   }, []);
 
-  return (
+  return { isLoading } ? (
+    <LoadingSpinner />
+  ) : (
     <ol data-testid="repositories-list-items">
       {repositories.map((repository) => (
         <li
