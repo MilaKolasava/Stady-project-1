@@ -20,29 +20,29 @@ type WeatherResponse = {
 };
 
 function Weather() {
-  const [lat, setLat] = useState<number | null>(null);
-  const [long, setLong] = useState<number | null>(null);
+  const [latitude, setLatitude] = useState<number | null>(null);
+  const [longitude, setLongitude] = useState<number | null>(null);
   const [data, setData] = useState<WeatherResponse | null>(null);
   const intl = useIntl();
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(function (position) {
-      setLat(position.coords.latitude);
-      setLong(position.coords.longitude);
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
     });
-  }, [lat, long]);
+  }, [latitude, longitude]);
 
   useEffect(() => {
-    if (lat && long) {
+    if (latitude && longitude) {
       axios
         .get<WeatherResponse>(
-          `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${API_KEY}&units=metric`
+          `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
         )
         .then((response) => {
           setData(response.data);
         });
     }
-  }, [lat, long]);
+  }, [latitude, longitude]);
 
   return (
     <div className="weather-wrapper" data-testid="weather-wrapper">
@@ -56,7 +56,7 @@ function Weather() {
           </div>
           <div className="weather-details" data-testid="weather-details">
             <p>
-              <b>{intl.formatMessage({ id: "temperature" })}:</b>{" "}
+              <b>{intl.formatMessage({ id: "temperature" })}: </b>
               {data.main.temp}°C
             </p>
             <div className="weather-info-sun">
