@@ -46,7 +46,69 @@ describe("Weather", () => {
       );
 
       await waitFor(() => {
-        expect(getByTestId("weather-render-bldock")).toBeInTheDocument();
+        expect(getByTestId("weather-render-block")).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe("render tests", () => {
+    it("should render weather-header", async () => {
+      const geolocation = {
+        getCurrentPosition: jest.fn().mockImplementationOnce((success) =>
+          Promise.resolve(
+            success({
+              coords: {
+                latitude: 51.1,
+                longitude: 45.3,
+              },
+            })
+          )
+        ),
+      };
+
+      Object.defineProperty(global.navigator, "geolocation", {
+        value: geolocation,
+      });
+
+      const { getByTestId } = render(
+        <I18nProvider locale={LOCALES.ENGLISH}>
+          <Weather />
+        </I18nProvider>
+      );
+
+      await waitFor(() => {
+        expect(getByTestId("weather-header")).toBeInTheDocument();
+      });
+    });
+  });
+
+  describe("render tests", () => {
+    it("should render weather-details", async () => {
+      const geolocation = {
+        getCurrentPosition: jest.fn().mockImplementationOnce((success) =>
+          Promise.resolve(
+            success({
+              coords: {
+                latitude: 51.1,
+                longitude: 45.3,
+              },
+            })
+          )
+        ),
+      };
+
+      Object.defineProperty(global.navigator, "geolocation", {
+        value: geolocation,
+      });
+
+      const { getByTestId } = render(
+        <I18nProvider locale={LOCALES.ENGLISH}>
+          <Weather />
+        </I18nProvider>
+      );
+
+      await waitFor(() => {
+        expect(getByTestId("weather-details")).toBeInTheDocument();
       });
     });
   });
