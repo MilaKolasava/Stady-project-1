@@ -9,8 +9,12 @@ afterEach(() => {
 
 describe("RepositoriesList", () => {
   describe("render tests", () => {
+    const setIsLoading = jest.fn();
+
     it("should render repositories list ", () => {
-      const { getByTestId } = render(<RepositoriesList />);
+      const { getByTestId } = render(
+        <RepositoriesList setIsLoading={setIsLoading} repositories={[]} />
+      );
 
       expect(getByTestId("repositories-list-items")).toBeInTheDocument();
     });
