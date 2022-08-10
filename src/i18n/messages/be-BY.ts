@@ -7,5 +7,8 @@ export default {
     dark: "ЦЁМНАЯ",
     light: "СВЕТЛАЯ",
     repositoryList: "Cпіс рэпазітараў",
+    temperature: "Tэмпература",
+    sunrise: "Усход",
+    sunset: "Захад",
   },
 };
