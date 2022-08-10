@@ -7,5 +7,8 @@ export default {
     dark: "CIEMNY",
     light: "ŚWIATŁO",
     repositoryList: "Lista repozytoriów",
+    temperature: "Temperatura",
+    sunrise: "Wschód",
+    sunset: "Zachód",
   },
 };
