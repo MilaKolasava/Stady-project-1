@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Header.css";
 import { ReactComponent as Storage } from "../../assets/source_repository_icon.svg";
 import MenuItems from "../MenuItems/MenuItems";
@@ -32,7 +32,6 @@ function Header(props: HeadersProps) {
           width="10"
           height="10"
         />
-
         <Toggle
           setIsDarkThemeOff={props.setIsDarkThemeOff}
           isDarkThemeOff={props.isDarkThemeOff}

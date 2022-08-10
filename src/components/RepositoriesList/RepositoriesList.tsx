@@ -23,7 +23,6 @@ function RepositoriesList() {
   }, [selectedRepositiry]);
 
   useEffect(() => {
-    setIsLoading(true);
     axios
       .get<SearchResult>("https://api.github.com/users/MilaKolasava/repos")
       .then((response) => {
