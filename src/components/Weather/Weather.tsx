@@ -3,6 +3,7 @@ import { API_KEY } from "./Weather.constant";
 import "./Weather.css";
 import axios from "axios";
 import { useIntl } from "react-intl";
+import SkeletonWeather from "../Skeletons/SkeletonWeather";
 
 type Main = {
   temp: number;
@@ -72,6 +73,7 @@ function Weather() {
           </div>
         </div>
       )}
+      {!data && <SkeletonWeather />}
     </div>
   );
 }

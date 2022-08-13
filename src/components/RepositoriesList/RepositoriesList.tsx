@@ -1,7 +1,4 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
-
-type SearchResult = Array<Repository>;
 
 type Repository = {
   name: string;
@@ -9,8 +6,12 @@ type Repository = {
   html_url: string;
 };
 
-function RepositoriesList() {
-  const [repositories, setRepositories] = useState<Repository[]>([]);
+interface RepositoriesListsProps {
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  repositories: Repository[];
+}
+
+function RepositoriesList(props: RepositoriesListsProps) {
   const [selectedRepositiry, setSelectedRepository] =
     useState<Repository | null>(null);
 
@@ -20,17 +21,9 @@ function RepositoriesList() {
     }
   }, [selectedRepositiry]);
 
-  useEffect(() => {
-    axios
-      .get<SearchResult>("https://api.github.com/users/MilaKolasava/repos")
-      .then((response) => {
-        setRepositories(response.data);
-      });
-  }, []);
-
   return (
     <ol data-testid="repositories-list-items">
-      {repositories.map((repository) => (
+      {props.repositories.map((repository) => (
         <li
           key={repository.id}
           className={selectedRepositiry === repository ? "selected" : ""}
