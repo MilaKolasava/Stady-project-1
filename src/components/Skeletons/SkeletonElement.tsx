@@ -8,7 +8,7 @@ interface SkeletonElements {
 function SkeletonElement(props: SkeletonElements) {
   const classes = `skeleton ${props.type}`;
 
-  return <div className={classes} data-testid="skeleton-element"></div>;
+  return <div className={classes} data-testid="skeleton-element" />;
 }
 
 export default SkeletonElement;
