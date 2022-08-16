@@ -33,10 +33,7 @@ function Header(props: HeadersProps) {
           width="10"
           height="10"
         />
-        <Toggle
-          setIsDarkThemeOff={setIsDarkThemeOff}
-          isDarkThemeOff={isDarkThemeOff}
-        />
+        <Toggle />
         <ButtonLang setLocale={props.setLocale} locale={props.locale} />
       </div>
     </nav>
