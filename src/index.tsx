@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import ThermeContext from "./components/ThemeContext/ThemeContext";
+import ThemeContext from "./components/ThemeContext/ThemeContext";
 
 function Main() {
   const [isDarkThemeOff, setIsDarkThemeOff] = useState<boolean>(() => true);
@@ -12,9 +12,9 @@ function Main() {
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <ThermeContext.Provider value={{ isDarkThemeOff, setIsDarkThemeOff }}>
+        <ThemeContext.Provider value={{ isDarkThemeOff, setIsDarkThemeOff }}>
           <App />
-        </ThermeContext.Provider>
+        </ThemeContext.Provider>
       </BrowserRouter>
     </React.StrictMode>
   );
