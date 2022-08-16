@@ -4,17 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import ThemeContext from "./components/ThemeContext/ThemeContext";
+import ThemeProvider from "./components/ThemeContext/ThemeProvider";
 
 function Main() {
-  const [isDarkThemeOff, setIsDarkThemeOff] = useState<boolean>(() => true);
-
   return (
     <React.StrictMode>
       <BrowserRouter>
-        <ThemeContext.Provider value={{ isDarkThemeOff, setIsDarkThemeOff }}>
+        <ThemeProvider>
           <App />
-        </ThemeContext.Provider>
+        </ThemeProvider>
       </BrowserRouter>
     </React.StrictMode>
   );
