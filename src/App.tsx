@@ -13,14 +13,10 @@ function App() {
   const [modalActive, setModalActive] = useState<boolean>(() => false);
   const [locale, setLocale] = useState<string>(() => LOCALES.ENGLISH);
 
-  const { isDarkThemeOff, setIsDarkThemeOff } = useContext(ThemeContext);
-
   return (
     <I18nProvider locale={locale}>
       <Header
         setModalActive={setModalActive}
-        setIsDarkThemeOff={setIsDarkThemeOff}
-        isDarkThemeOff={isDarkThemeOff}
         setLocale={setLocale}
         locale={locale}
       />
@@ -30,10 +26,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="/" element={<Jumbotron />} />
       </Routes>
-      <Footer
-        setIsDarkThemeOff={setIsDarkThemeOff}
-        isDarkThemeOff={isDarkThemeOff}
-      />
+      <Footer />
     </I18nProvider>
   );
 }
