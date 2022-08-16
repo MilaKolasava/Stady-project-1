@@ -13,10 +13,11 @@
 .modalContent {
   background-color: antiquewhite;
   border-radius: 2px;
-  height: 50vh;
-  width: auto;
+  height: 48vh;
+  width: 500px;
   overflow-y: scroll;
 }
+
 .modalContent::-webkit-scrollbar {
   width: 3px;
 }
