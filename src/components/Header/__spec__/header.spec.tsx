@@ -39,7 +39,6 @@ test("should render wrapper", () => {
 test("should render storage", () => {
   const setModalActive = jest.fn();
   const setIsDarkThemeOff = jest.fn();
-  const isDarkThemeOff = false;
   const setLocale = jest.fn();
   const locale = "MAIN";
 
