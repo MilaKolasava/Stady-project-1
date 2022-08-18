@@ -3,6 +3,7 @@ import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import Toggle from "../Toggle";
 import "@testing-library/jest-dom";
 import { I18nProvider, LOCALES } from "../../../i18n";
+import ThemeContext from "../../ThemeContext/ThemeContext";
 
 afterEach(() => {
   cleanup();
@@ -15,10 +16,11 @@ describe("Toggle", () => {
     it("should render wrapper toggle component", () => {
       const { getByTestId } = render(
         <I18nProvider locale={LOCALES.ENGLISH}>
-          <Toggle
-            setIsDarkThemeOff={setIsDarkThemeOff}
-            isDarkThemeOff={false}
-          />
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: false, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
         </I18nProvider>
       );
 
@@ -30,10 +32,11 @@ describe("Toggle", () => {
     it("should render dot toggle component", () => {
       const { getByTestId } = render(
         <I18nProvider locale={LOCALES.ENGLISH}>
-          <Toggle
-            setIsDarkThemeOff={setIsDarkThemeOff}
-            isDarkThemeOff={false}
-          />
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: false, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
         </I18nProvider>
       );
 
@@ -45,10 +48,11 @@ describe("Toggle", () => {
     it("should render switch toggle component", () => {
       const { getByTestId } = render(
         <I18nProvider locale={LOCALES.ENGLISH}>
-          <Toggle
-            setIsDarkThemeOff={setIsDarkThemeOff}
-            isDarkThemeOff={false}
-          />
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: false, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
         </I18nProvider>
       );
 
@@ -60,7 +64,11 @@ describe("Toggle", () => {
     it("should execute onClick function when clicked", () => {
       const { getByTestId } = render(
         <I18nProvider locale={LOCALES.ENGLISH}>
-          <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={true} />
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: true, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
         </I18nProvider>
       );
 
