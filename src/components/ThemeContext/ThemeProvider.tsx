@@ -7,6 +7,7 @@ interface ThemeProviderProps {
 
 const ThemeProvider = (props: ThemeProviderProps) => {
   const [isDarkThemeOff, setIsDarkThemeOff] = useState<boolean>(() => true);
+
   return (
     <ThemeContext.Provider value={{ isDarkThemeOff, setIsDarkThemeOff }}>
       {props.children}
