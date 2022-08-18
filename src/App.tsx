@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";
+import FuelCost from "./components/FuelCost/FuelCost";
 import Header from "./components/Header/Header";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
@@ -21,6 +22,7 @@ function App() {
         locale={locale}
       />
       <Weather />
+      <FuelCost />
       {modalActive && <ModalWindow setModalActive={setModalActive} />}
       <Routes>
         <Route path="about" element={<About />} />
