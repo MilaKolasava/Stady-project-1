@@ -1,0 +1,23 @@
+.cityweather-wrapper {
+  width: 320px;
+  height: 164px;
+  position: absolute;
+  bottom: 34px;
+  right: 0;
+  background-color: rgba(247, 232, 155, 0.4);
+}
+
+.cityweather-search {
+  text-align: left;
+  padding: 10px;
+}
+
+.cityweather-search input {
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::placeholder {
+  color: #f8f8f8;
+}
