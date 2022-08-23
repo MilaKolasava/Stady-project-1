@@ -1,20 +1,35 @@
 import axios from "axios";
 import React, { useState } from "react";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { API_KEY } from "../Weather/Weather.constant";
 import "./CityWeather.css";
 
+type Main = {
+  temp: number;
+};
+
+type CityWeatherResponse = {
+  main: Main;
+  name: string;
+};
+
 function CityWeather() {
-  const [data, setData] = useState({});
-  const [location, setLocation] = useState("");
+  const [data, setData] = useState<CityWeatherResponse | null>(null);
+  const [city, setCity] = useState<string>();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location},uk&callback=test&appid=${API_KEY}`;
-
-  const searchLocation = (event: { key: string }) => {
+  const searchCity = (event: { key: string }) => {
     if (event.key === "Enter") {
-      axios.get(url).then((response) => {
-        setData(response.data);
-        console.log(response.data);
-      });
+      axios
+        .get<CityWeatherResponse>(
+          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+        )
+        .then((response) => {
+          setData(response.data);
+          console.log(response.data);
+          setCity("");
+          setIsLoading(false);
+        });
     }
   };
 
@@ -22,19 +37,27 @@ function CityWeather() {
     <div className="cityweather-wrapper">
       <div className="cityweather-search">
         <input
-          value={location}
-          onChange={(event) => setLocation(event.target.value)}
-          onKeyPress={searchLocation}
-          placeholder="Enter Location"
+          value={city}
+          onChange={(event) => setCity(event.target.value)}
+          placeholder="Enter City"
+          onKeyPress={searchCity}
           type="text"
         />
       </div>
-      <div className="cityweather-container">
-        <div className="cityweather-location">Warsaw</div>
-        <div className="cityweather-tempepature">
-          <h2>30°C</h2>
-        </div>
-      </div>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        data && (
+          <div className="cityweather-container">
+            <div className="cityweather-location">
+              <b>{data && data.name}</b>
+            </div>
+            <div className="cityweather-tempepature">
+              <h2>{data && data.main.temp}°C</h2>
+            </div>
+          </div>
+        )
+      )}
     </div>
   );
 }

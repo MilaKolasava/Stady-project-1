@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
 import CityWeather from "./components/CityWeather/CityWeather";
