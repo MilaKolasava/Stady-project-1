@@ -19,7 +19,7 @@
 }
 
 .weather-details {
-  padding: 10px;
+  padding-left: 10px;
   height: 148px;
   display: flex;
   flex-direction: column;
