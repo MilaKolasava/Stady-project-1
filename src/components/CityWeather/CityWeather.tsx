@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { API_KEY } from "../Weather/Weather.constant";
 import "./CityWeather.css";
-import { ReactComponent as Loupa } from "../../assets/loupe.svg";
+import { ReactComponent as Loupe } from "../../assets/loupe.svg";
 
 type Main = {
   temp: number;
@@ -22,27 +22,36 @@ function CityWeather() {
   const [data, setData] = useState<CityWeatherResponse | null>(null);
   const [city, setCity] = useState<string>();
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isEmpty, setIsEmpty] = useState<boolean>(true);
   const [error, setError] = useState<CityWeatherError | null>(null);
+
   const handleClick = async () => {
+    if (isEmpty) {
+      return;
+    }
     setIsLoading(true);
 
-    useEffect(() => {
-      axios
-        .get<CityWeatherResponse>(
-          `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-        )
-        .then((response) => {
-          setData(response.data);
-          console.log(response.data);
-          setCity("");
-          setIsLoading(false);
-        })
-        .catch((error) => {
-          setError(error.message);
-        }),
-        [];
-    });
+    axios
+      .get<CityWeatherResponse>(
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+      )
+      .then((response) => {
+        setData(response.data);
+        setCity("");
+        setIsEmpty(true);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
+
+  useEffect(() => {
+    if (!!city) {
+      setIsEmpty(false);
+    }
+  }, [city]);
+
   return (
     <div className="cityweather-wrapper">
       <div className="cityweather-search">
@@ -52,11 +61,11 @@ function CityWeather() {
           placeholder="Enter City"
           type="text"
         />
-        <Loupa
-          className="cityweather-input-button"
-          onClick={() => {
-            handleClick;
-          }}
+        <Loupe
+          className={`cityweather-input-button ${
+            !isEmpty ? "enabled" : "disabled"
+          }`}
+          onClick={handleClick}
         />
       </div>
       {isLoading ? (
@@ -68,7 +77,7 @@ function CityWeather() {
               <b>{data && data.name}</b>
             </div>
             <div className="cityweather-tempepature">
-              <h2>{data && data.main.temp}°C</h2>
+              <h2>{data && data.main.temp.toFixed()}°C</h2>
             </div>
           </div>
         )

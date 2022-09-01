@@ -28,16 +28,39 @@
   width: 15px;
   height: 15px;
   vertical-align: middle;
-  border: 1px solid rgba(88, 82, 82, 0.8);
   border-radius: 5px;
 }
 
-.cityweather-input-button * {
+.enabled:hover {
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  background-color: rgba(227, 218, 218, 0.8);
+}
+
+.enabled:active {
+  background-color: rgba(212, 204, 204, 0.8);
+}
+
+.enabled * {
   fill: rgba(23, 23, 22, 0.8);
 }
 
 ::placeholder {
   color: #f8f8f8;
+}
+
+.disabled * {
+  fill: rgba(80, 80, 74, 0.8);
+}
+
+.disabled {
+  border: 1px solid rgba(229, 220, 220, 0.8);
+  cursor: no-drop;
+  background-color: rgba(170, 163, 163, 0.8);
+}
+
+.enabled {
+  border: 1px solid rgba(248, 248, 248, 0.8);
 }
 
 .cityweather-container {
