@@ -76,7 +76,7 @@ function CityWeather() {
             <div className="cityweather-location">
               <b>{data && data.name}</b>
             </div>
-            <div className="cityweather-tempepature">
+            <div className="cityweather-temperature">
               <h2>{data && data.main.temp.toFixed()}°C</h2>
             </div>
           </div>
