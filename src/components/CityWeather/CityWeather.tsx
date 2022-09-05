@@ -15,6 +15,7 @@ type CityWeatherResponse = {
 };
 
 type CityWeatherError = {
+  response: any;
   message: string;
 };
 
@@ -44,6 +45,7 @@ function CityWeather() {
         setError(null);
       })
       .catch((error) => {
+        setCity("");
         console.log(error);
         setError(error);
         setIsLoading(false);
@@ -60,8 +62,9 @@ function CityWeather() {
     if (error != null) {
       return (
         <div className="cityweather-errorView">
-          <p>Oh no! Something went wrong.</p>
-          <p>{error.message}.</p>
+          <p>
+            <b>Oh no, {error.response.data.message}.</b>
+          </p>
         </div>
       );
     }
