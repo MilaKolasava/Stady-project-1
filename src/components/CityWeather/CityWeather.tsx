@@ -39,10 +39,14 @@ function CityWeather() {
         setData(response.data);
         setCity("");
         setIsEmpty(true);
+        console.log(data);
         setIsLoading(false);
+        setError(null);
       })
       .catch((error) => {
-        setError(error.message);
+        console.log(error);
+        setError(error);
+        setIsLoading(false);
       });
   };
 
@@ -52,6 +56,18 @@ function CityWeather() {
     }
   }, [city]);
 
+  const getErrorView = () => {
+    if (error != null) {
+      return (
+        <div className="cityweather-errorView">
+          <p>Oh no! Something went wrong.</p>
+          <p>{error.message}.</p>
+        </div>
+      );
+    }
+  };
+
+  console.log(data, error, isLoading);
   return (
     <div className="cityweather-wrapper">
       <div className="cityweather-search">
@@ -68,8 +84,11 @@ function CityWeather() {
           onClick={handleClick}
         />
       </div>
+
       {isLoading ? (
         <LoadingSpinner />
+      ) : error ? (
+        getErrorView()
       ) : (
         data && (
           <div className="cityweather-container">
