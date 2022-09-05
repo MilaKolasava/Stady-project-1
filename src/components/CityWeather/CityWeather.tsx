@@ -40,13 +40,11 @@ function CityWeather() {
         setData(response.data);
         setCity("");
         setIsEmpty(true);
-        console.log(data);
         setIsLoading(false);
         setError(null);
       })
       .catch((error) => {
         setCity("");
-        console.log(error);
         setError(error);
         setIsLoading(false);
       });
@@ -70,7 +68,6 @@ function CityWeather() {
     }
   };
 
-  console.log(data, error, isLoading);
   return (
     <div className="cityweather-wrapper">
       <div className="cityweather-search">
