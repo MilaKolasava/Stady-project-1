@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import message from "react-intl/src/components/message";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
 import CityWeather from "./components/CityWeather/CityWeather";

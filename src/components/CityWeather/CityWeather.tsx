@@ -4,7 +4,8 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { API_KEY } from "../Weather/Weather.constant";
 import "./CityWeather.css";
 import { ReactComponent as Loupe } from "../../assets/loupe.svg";
-import getErrorView from "../../utils/getErrorView";
+import CityWeatherErrorView from "../CityWeatherErrorView/CityWeatherErrorView";
+import { useIntl } from "react-intl";
 
 type Main = {
   temp: number;
@@ -26,6 +27,7 @@ function CityWeather() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isEmpty, setIsEmpty] = useState<boolean>(true);
   const [error, setError] = useState<CityWeatherError | null>(null);
+  const intl = useIntl();
 
   const handleClick = async () => {
     if (isEmpty) {
@@ -63,7 +65,7 @@ function CityWeather() {
         <input
           value={city}
           onChange={(event) => setCity(event.target.value)}
-          placeholder="Enter City"
+          placeholder={intl.formatMessage({ id: "enterCity" })}
           type="text"
         />
         <Loupe
@@ -77,7 +79,7 @@ function CityWeather() {
       {isLoading ? (
         <LoadingSpinner />
       ) : error ? (
-        getErrorView()
+        <CityWeatherErrorView error={error} />
       ) : (
         data && (
           <div className="cityweather-container">
