@@ -4,6 +4,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { API_KEY } from "../Weather/Weather.constant";
 import "./CityWeather.css";
 import { ReactComponent as Loupe } from "../../assets/loupe.svg";
+import getErrorView from "../../utils/getErrorView";
 
 type Main = {
   temp: number;
@@ -55,18 +56,6 @@ function CityWeather() {
       setIsEmpty(false);
     }
   }, [city]);
-
-  const getErrorView = () => {
-    if (error != null) {
-      return (
-        <div className="cityweather-errorView">
-          <p>
-            <b>Oh no, {error.response.data.message}.</b>
-          </p>
-        </div>
-      );
-    }
-  };
 
   return (
     <div className="cityweather-wrapper">
