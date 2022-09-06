@@ -9,8 +9,11 @@ function CityWeatherErrorView(props: CityWeatherErrorView) {
   const intl = useIntl();
 
   return (
-    <div className="cityweather-errorView">
-      <p>
+    <div
+      className="cityweather-errorView"
+      data-testid="cityweathererrorview-wrapper"
+    >
+      <p data-testid="cityweathererrorview-text">
         <b>
           {props.error != null &&
           props.error.response.data.message == "city not found"
