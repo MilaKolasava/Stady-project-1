@@ -2,7 +2,6 @@ import React from "react";
 import { render } from "@testing-library/react";
 import { I18nProvider, LOCALES } from "../../../i18n";
 import CityWeatherErrorView from "../CityWeatherErrorView";
-import { stringify } from "querystring";
 
 describe("CityWeatherErrorView", () => {
   describe("render tests", () => {
