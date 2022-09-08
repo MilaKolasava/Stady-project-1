@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { API_KEY } from "../Weather/Weather.constant";
 import "./CityWeather.css";
-import { useIntl } from "react-intl";
 
 type Main = {
   temp: number;
