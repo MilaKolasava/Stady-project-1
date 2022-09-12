@@ -10,5 +10,8 @@ export default {
     temperature: "Temperatura",
     sunrise: "Wschód",
     sunset: "Zachód",
+    error: "Och, nie! Nie znaleziono miasta!",
+    errorAnother: "Błąd zapytania!",
+    enterCity: "Wpisz nazwę miasta",
   },
 };

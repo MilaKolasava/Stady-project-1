@@ -58,7 +58,7 @@ function Weather() {
           <div className="weather-details" data-testid="weather-details">
             <p>
               <b>{intl.formatMessage({ id: "temperature" })}: </b>
-              {data.main.temp}°C
+              {data.main.temp.toFixed()}°C
             </p>
             <div className="weather-info-sun">
               <p>

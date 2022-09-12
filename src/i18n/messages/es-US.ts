@@ -10,5 +10,8 @@ export default {
     temperature: "Temperature",
     sunrise: "Sunrise",
     sunset: "Sunset",
+    error: "Oh, no! City not found!",
+    errorAnother: "Request error!",
+    enterCity: "Enter city",
   },
 };

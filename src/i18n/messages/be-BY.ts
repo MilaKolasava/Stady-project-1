@@ -10,5 +10,8 @@ export default {
     temperature: "Tэмпература",
     sunrise: "Усход",
     sunset: "Захад",
+    error: "Ax, не! Горад не знайдзен!",
+    errorAnother: "Памылка запыту!",
+    enterCity: "Увядзіце назву горада",
   },
 };
