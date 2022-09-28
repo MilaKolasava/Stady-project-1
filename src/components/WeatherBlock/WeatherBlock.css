@@ -1,0 +1,8 @@
+.weather-block {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  position: absolute;
+  right: 0;
+  bottom: 30px;
+}
