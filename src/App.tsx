@@ -1,11 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
+import message from "react-intl/src/components/message";
 import { Routes, Route } from "react-router-dom";
 import About from "./components/About/About";
+import CityWeather from "./components/CityWeather/CityWeather";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
-import ThemeContext from "./components/ThemeContext/ThemeContext";
 import Weather from "./components/Weather/Weather";
 import { I18nProvider, LOCALES } from "./i18n";
 
@@ -21,6 +22,7 @@ function App() {
         locale={locale}
       />
       <Weather />
+      <CityWeather />
       {modalActive && <ModalWindow setModalActive={setModalActive} />}
       <Routes>
         <Route path="about" element={<About />} />
