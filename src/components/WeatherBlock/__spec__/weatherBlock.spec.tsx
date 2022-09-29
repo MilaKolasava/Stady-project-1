@@ -1,14 +1,25 @@
 import React from "react";
-import { render, screen, cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import WeatherBlock from "../WeatherBlock";
+import { I18nProvider, LOCALES } from "../../../i18n";
+import { mockNavigatorGeolocation } from "../../../utils-test/mockNavigatorGeolocation";
 
 afterEach(() => {
   cleanup();
 });
 
-test("should render WeatherBlock component", () => {
-  render(<WeatherBlock />);
-  const weatherBlockElement = screen.getByTestId("weather-block");
+describe("WeatherBlock", () => {
+  const { getCurrentPositionMock } = mockNavigatorGeolocation();
 
-  expect(weatherBlockElement).toBeInTheDocument();
+  describe("render tests", () => {
+    it("should render weatherBlock component", () => {
+      const { getByTestId } = render(
+        <I18nProvider locale={LOCALES.ENGLISH}>
+          <WeatherBlock />
+        </I18nProvider>
+      );
+
+      expect(getByTestId("weather-block")).toBeVisible();
+    });
+  });
 });
