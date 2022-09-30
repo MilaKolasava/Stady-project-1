@@ -1,9 +1,7 @@
 executors:
   cypress:
     docker:
-      - image: cypress/base:12
-        environment:
-          TERM: xterm
+      - image: cimg/node:16.13.2
     working_directory: ~/react-fundamentals
 
 commands:
