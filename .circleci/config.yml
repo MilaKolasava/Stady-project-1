@@ -23,7 +23,7 @@ commands:
           name: Install dep
           command: yarn install
 orbs:
-  node: circleci/node@3.0.0
+  node: circleci/node@5.0.2
 
 version: 2.1
 jobs:
