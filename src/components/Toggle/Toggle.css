@@ -5,7 +5,7 @@
   height: 20px;
   cursor: pointer;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .toggle-wrapper-dark {
