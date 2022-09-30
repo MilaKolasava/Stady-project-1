@@ -1,5 +1,4 @@
-import React from "react";
-import { render, cleanup } from "@testing-library/react";
+import { cleanup } from "@testing-library/react";
 import getColorTheme from "../getColorTheme";
 import "@testing-library/jest-dom";
 

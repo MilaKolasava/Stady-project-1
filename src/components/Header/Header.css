@@ -30,16 +30,18 @@
   list-style-type: none;
 }
 
-.loupe-dark * {
+.storage-dark * {
   fill: white;
 }
 
-.loupe-light * {
+.storage-light * {
   fill: black;
 }
 
-.loupe {
+.storage {
   cursor: pointer;
+  width: 24px;
+  height: 24px;
 }
 
 .list-navigation li {

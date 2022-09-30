@@ -1,36 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Toggle.css";
 import getColorTheme from "../../utils/getColorTheme";
+import { useIntl } from "react-intl";
+import ThemeContext from "../ThemeContext/ThemeContext";
 
-interface TogglesProps {
-  setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
-  isDarkThemeOff: boolean;
-}
+function Toggle() {
+  const intl = useIntl();
+  const { isDarkThemeOff, setIsDarkThemeOff } = useContext(ThemeContext);
 
-function Toggle(props: TogglesProps) {
   return (
     <div
       className={`toggle-wrapper toggle-wrapper-${getColorTheme(
-        props.isDarkThemeOff
+        isDarkThemeOff
       )}`}
       data-testid="toggle-wrapper"
       onClick={() => {
-        props.setIsDarkThemeOff(!props.isDarkThemeOff);
+        setIsDarkThemeOff(!isDarkThemeOff);
       }}
     >
       <div
         className={`toggle-dot dot-${
-          props.isDarkThemeOff ? "right" : "left"
+          isDarkThemeOff ? "right" : "left"
         }-position`}
         data-testid="toggle-dot"
       />
       <div
         className={`toggle-switch toggle-switch-${
-          props.isDarkThemeOff ? "left" : "right"
+          isDarkThemeOff ? "left" : "right"
         }`}
         data-testid="toggle-switch"
       >
-        {getColorTheme(props.isDarkThemeOff).toUpperCase()}
+        {intl.formatMessage({ id: getColorTheme(isDarkThemeOff) })}
       </div>
     </div>
   );

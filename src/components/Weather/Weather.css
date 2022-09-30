@@ -1,0 +1,33 @@
+.weather-wrapper {
+  width: 320px;
+  height: 185px;
+  position: absolute;
+  bottom: 33px;
+  right: 0;
+  background-color: rgba(247, 232, 155, 0.4);
+}
+
+.weather-header {
+  margin: 0 auto;
+  padding: 0;
+  background-color: rgba(99, 88, 30, 0.4);
+}
+
+.weather-header h2 {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.weather-details {
+  padding-left: 10px;
+  height: 148px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.weather-info-sun {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

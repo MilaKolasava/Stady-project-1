@@ -1,18 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Footer.css";
 import { ReactComponent as LinkedIn } from "../../assets/linkedin-icon.svg";
 import { ReactComponent as GitHub } from "../../assets/github-icon.svg";
 import getColorTheme from "../../utils/getColorTheme";
+import ThemeContext from "../ThemeContext/ThemeContext";
 
-interface FootersProps {
-  setIsDarkThemeOff: React.Dispatch<React.SetStateAction<boolean>>;
-  isDarkThemeOff: boolean;
-}
+function Footer() {
+  const { isDarkThemeOff } = useContext(ThemeContext);
 
-function Footer(props: FootersProps) {
   return (
     <nav
-      className={`wrapper wrapper-${getColorTheme(props.isDarkThemeOff)}`}
+      className={`wrapper wrapper-${getColorTheme(isDarkThemeOff)}`}
       id="footer"
       data-testid="footer-wrapper"
     >
@@ -21,16 +19,12 @@ function Footer(props: FootersProps) {
         target="_blank"
       >
         <LinkedIn
-          className={`svg-picture svg-picture-${getColorTheme(
-            props.isDarkThemeOff
-          )}`}
+          className={`svg-picture svg-picture-${getColorTheme(isDarkThemeOff)}`}
         />
       </a>
       <a href="https://github.com/MilaKolasava" target="_blank">
         <GitHub
-          className={`svg-picture svg-picture-${getColorTheme(
-            props.isDarkThemeOff
-          )}`}
+          className={`svg-picture svg-picture-${getColorTheme(isDarkThemeOff)}`}
         />
       </a>
       <p>@Copyright 2022 Kolasava M.</p>

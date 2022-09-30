@@ -2,6 +2,8 @@ import React from "react";
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import Toggle from "../Toggle";
 import "@testing-library/jest-dom";
+import { I18nProvider, LOCALES } from "../../../i18n";
+import ThemeContext from "../../ThemeContext/ThemeContext";
 
 afterEach(() => {
   cleanup();
@@ -13,7 +15,13 @@ describe("Toggle", () => {
   describe("render tests", () => {
     it("should render wrapper toggle component", () => {
       const { getByTestId } = render(
-        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={false} />
+        <I18nProvider locale={LOCALES.ENGLISH}>
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: false, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
+        </I18nProvider>
       );
 
       expect(getByTestId("toggle-wrapper")).toBeVisible();
@@ -23,7 +31,13 @@ describe("Toggle", () => {
   describe("render tests", () => {
     it("should render dot toggle component", () => {
       const { getByTestId } = render(
-        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={false} />
+        <I18nProvider locale={LOCALES.ENGLISH}>
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: false, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
+        </I18nProvider>
       );
 
       expect(getByTestId("toggle-dot")).toBeVisible();
@@ -33,7 +47,13 @@ describe("Toggle", () => {
   describe("render tests", () => {
     it("should render switch toggle component", () => {
       const { getByTestId } = render(
-        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={false} />
+        <I18nProvider locale={LOCALES.ENGLISH}>
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: false, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
+        </I18nProvider>
       );
 
       expect(getByTestId("toggle-switch")).toBeVisible();
@@ -43,7 +63,13 @@ describe("Toggle", () => {
   describe("click handling test", () => {
     it("should execute onClick function when clicked", () => {
       const { getByTestId } = render(
-        <Toggle setIsDarkThemeOff={setIsDarkThemeOff} isDarkThemeOff={true} />
+        <I18nProvider locale={LOCALES.ENGLISH}>
+          <ThemeContext.Provider
+            value={{ isDarkThemeOff: true, setIsDarkThemeOff }}
+          >
+            <Toggle />
+          </ThemeContext.Provider>
+        </I18nProvider>
       );
 
       fireEvent.click(screen.getByText(/DARK/i));

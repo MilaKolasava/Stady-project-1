@@ -6,5 +6,12 @@ export default {
     about: "ABOUT",
     dark: "DARK",
     light: "LIGHT",
+    repositoryList: "Repositories list",
+    temperature: "Temperature",
+    sunrise: "Sunrise",
+    sunset: "Sunset",
+    error: "Oh, no! City not found!",
+    errorAnother: "Request error!",
+    enterCity: "Enter city",
   },
 };

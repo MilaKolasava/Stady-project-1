@@ -10,7 +10,7 @@ function MenuItems(props: MenuItemsProps) {
   return (
     <ul className="list-navigation" data-testid="menu-items">
       {props.items.map((item) => (
-        <MenuItem title={item.title.toUpperCase()} path={item.path} />
+        <MenuItem title={item.title} path={item.path} />
       ))}
     </ul>
   );
