@@ -2,7 +2,7 @@ import React from "react";
 import { render, waitFor } from "@testing-library/react";
 import { I18nProvider, LOCALES } from "../../../i18n";
 import Weather from "../Weather";
-import { mockNavigatorGeolocation } from "./mockNavigatorGeolocation";
+import { mockNavigatorGeolocation } from "../../../utils-test/mockNavigatorGeolocation";
 
 describe("Weather", () => {
   const rejected = jest.fn();

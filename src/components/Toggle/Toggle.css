@@ -4,6 +4,8 @@
   width: 63px;
   height: 20px;
   cursor: pointer;
+  display: flex;
+  justify-content: space-around;
 }
 
 .toggle-wrapper-dark {
