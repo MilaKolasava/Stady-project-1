@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
 import Weather from "./components/Weather/Weather";
+import WeatherBlock from "./components/WeatherBlock/WeatherBlock";
 import { I18nProvider, LOCALES } from "./i18n";
 
 function App() {
@@ -21,8 +22,7 @@ function App() {
         setLocale={setLocale}
         locale={locale}
       />
-      <Weather />
-      <CityWeather />
+      <WeatherBlock />
       {modalActive && <ModalWindow setModalActive={setModalActive} />}
       <Routes>
         <Route path="about" element={<About />} />
