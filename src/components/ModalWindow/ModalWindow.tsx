@@ -5,6 +5,8 @@ import { useIntl } from "react-intl";
 import RepositoriesList from "../RepositoriesList/RepositoriesList";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import axios from "axios";
+import { getRepositoriesActions } from '../../store/repositories/actions';
+import { useDispatch } from 'react-redux';
 
 interface ModalWindowProps {
   setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,6 +24,11 @@ function ModalWindow(props: ModalWindowProps) {
   const intl = useIntl();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [repositories, setRepositories] = useState<Repository[]>([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getRepositoriesActions.request())
+  }, [dispatch])
 
   useEffect(() => {
     axios
@@ -63,3 +70,4 @@ function ModalWindow(props: ModalWindowProps) {
 }
 
 export default ModalWindow;
+
