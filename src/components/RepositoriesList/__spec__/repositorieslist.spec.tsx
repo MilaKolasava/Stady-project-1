@@ -13,7 +13,7 @@ describe("RepositoriesList", () => {
 
     it("should render repositories list ", () => {
       const { getByTestId } = render(
-        <RepositoriesList setIsLoading={setIsLoading} repositories={[]} />
+        <RepositoriesList isLoading={true} repositories={[]} />
       );
 
       expect(getByTestId("repositories-list-items")).toBeInTheDocument();

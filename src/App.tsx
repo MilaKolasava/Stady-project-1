@@ -7,6 +7,8 @@ import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ModalWindow from "./components/ModalWindow/ModalWindow";
 import WeatherBlock from "./components/WeatherBlock/WeatherBlock";
 import { I18nProvider, LOCALES } from "./i18n";
+import { Provider as ReduxProvider } from "react-redux";
+import store from "./store/store";
 
 function App() {
   const [modalActive, setModalActive] = useState<boolean>(() => false);
@@ -21,20 +23,22 @@ function App() {
   }, [modalActive]);
 
   return (
-    <I18nProvider locale={locale}>
-      <Header
-        setModalActive={setModalActive}
-        setLocale={setLocale}
-        locale={locale}
-      />
-      <WeatherBlock />
-      {modalActive && <ModalWindow setModalActive={setModalActive} />}
-      <Routes>
-        <Route path="about" element={<About />} />
-        <Route path="/" element={<Jumbotron />} />
-      </Routes>
-      <Footer />
-    </I18nProvider>
+    <ReduxProvider store={store}>
+      <I18nProvider locale={locale}>
+        <Header
+          setModalActive={setModalActive}
+          setLocale={setLocale}
+          locale={locale}
+        />
+        <WeatherBlock />
+        {modalActive && <ModalWindow setModalActive={setModalActive} />}
+        <Routes>
+          <Route path="about" element={<About />} />
+          <Route path="/" element={<Jumbotron />} />
+        </Routes>
+        <Footer />
+      </I18nProvider>
+    </ReduxProvider>
   );
 }
 

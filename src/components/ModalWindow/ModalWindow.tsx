@@ -1,36 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./ModalWindow.css";
 import { ReactComponent as Cross } from "../../assets/cross.svg";
 import { useIntl } from "react-intl";
 import RepositoriesList from "../RepositoriesList/RepositoriesList";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
-import axios from "axios";
-
-interface ModalWindowProps {
-  setModalActive: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-type SearchResult = Array<Repository>;
-
-type Repository = {
-  name: string;
-  id: number;
-  html_url: string;
-};
+import { useDispatch, useSelector } from "react-redux";
+import { getRepositoriesActions } from "../../store/repositories/actions";
+import { ACTION_STATUSES } from "../shared/types";
+import { RootState } from "../../store/rootReducer";
+import { ModalWindowProps, Repository } from "../../store/repositories/types";
 
 function ModalWindow(props: ModalWindowProps) {
+  const isLoadingUseSelector = useSelector(
+    // @ts-ignore
+    (state: RootState) => state.repositories.status
+  );
   const intl = useIntl();
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [repositories, setRepositories] = useState<Repository[]>([]);
+  const isLoading =
+    isLoadingUseSelector !== ACTION_STATUSES.FULFILLED ||
+    isLoadingUseSelector === null;
+  const repositories = useSelector(
+    // @ts-ignore
+    (state: RootState) => state.repositories.repositories
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get<SearchResult>("https://api.github.com/users/MilaKolasava/repos")
-      .then((response) => {
-        setRepositories(response.data);
-        setIsLoading(false);
-      });
-  }, []);
+    dispatch(getRepositoriesActions.request());
+  }, [dispatch]);
 
   return (
     <div className="modalWindow" data-testid="modal-window">
@@ -53,8 +50,8 @@ function ModalWindow(props: ModalWindowProps) {
           <LoadingSpinner />
         ) : (
           <RepositoriesList
-            setIsLoading={setIsLoading}
-            repositories={repositories}
+            isLoading={isLoading}
+            repositories={repositories as unknown as Repository[]}
           />
         )}
       </div>
