@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from "react";
-
-type Repository = {
-  name: string;
-  id: number;
-  html_url: string;
-};
+import { Repository } from "../../store/repositories/types";
 
 interface RepositoriesListsProps {
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  isLoading: boolean;
   repositories: Repository[];
 }
 
@@ -32,7 +27,7 @@ function RepositoriesList(props: RepositoriesListsProps) {
           }}
         >
           <b>{repository.name}</b> <br />
-          <a href={repository.html_url} target="_blank">
+          <a href={repository.html_url} target="_blank" rel="noreferrer">
             {repository.html_url}
           </a>
         </li>

@@ -1,0 +1,5 @@
+export enum ACTION_STATUSES {
+    PENDING = "PENDING",
+    FULFILLED = "FULFILLED",
+    REJECTED = "REJECTED",
+}
